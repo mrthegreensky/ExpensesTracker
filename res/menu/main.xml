@@ -8,5 +8,7 @@
         android:showAsAction="never"
         android:title="@string/action_settings"/>
     <item android:id="@+id/CreateNewClaimItem" android:title="Create a New Claim"></item>
+    <item android:id="@+id/EditClaimItem" android:title="Edit Claim"></item>
+    <item android:id="@+id/DeleteClaimItem" android:title="Delete Claim"></item>
 
 </menu>
