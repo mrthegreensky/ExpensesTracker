@@ -18,5 +18,9 @@ public class Claims {
 	public void replaceClaim(Expense oldexpense, Expense newexpense) {
 		list.set(list.indexOf(oldexpense), newexpense);
 	}
+	
+	public List<Expense> getClaims() {
+		return list;
+	}
 
 }

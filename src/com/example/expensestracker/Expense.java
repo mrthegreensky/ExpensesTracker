@@ -8,13 +8,17 @@ public class Expense {
 	
 	private String currency;
 	private int cost;
-
-	private String description;
-	private Date date; 
 	
-	public void expense(int cost, String currency, String description, String date) {
+	
+	private String category;
+	private String description;
+	private Date date; // May have to use calendar 
+	
+	public void expense(int cost, String currency, String category, String description, String date) {
 		this.cost = cost;
 		this.currency = currency;
+		
+		this.category = category;
 		this.description = description;
 		try{
 		this.date = new SimpleDateFormat("yyyy-MM-dd").parse(date); //Assuming date is in text 
@@ -32,12 +36,16 @@ public class Expense {
 		return this.currency;
 	}
 	
+	public String getCategory() {
+		return this.category;
+	}
+	
 	public String getDescription() { 
 		return this.description;
 	}
 	
-	public Date getDate() {
-		return this.date;
+	public String getDate() {
+		return new SimpleDateFormat("yyyy-MM-dd").format(this.date);
 	}
 
 }
