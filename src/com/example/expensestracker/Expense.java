@@ -1,6 +1,7 @@
 package com.example.expensestracker;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.text.ParseException;
 
@@ -13,11 +14,11 @@ public class Expense {
 	private String category;
 	private String description;
 	private Date date; // May have to use calendar 
+	private Calendar calendar; // If I have to use Calendar
 	
 	public void expense(int cost, String currency, String category, String description, String date) {
 		this.cost = cost;
 		this.currency = currency;
-		
 		this.category = category;
 		this.description = description;
 		try{
