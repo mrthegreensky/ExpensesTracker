@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
-        android:text="Claims"
+        android:text="@string/Claims"
         android:textAppearance="?android:attr/textAppearanceLarge" 
         android:clickable="true"/>
 
@@ -30,7 +30,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="80dp"
-        android:text="Claims Status"
+        android:text="@string/ClaimsStatus"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:clickable="true" />
 

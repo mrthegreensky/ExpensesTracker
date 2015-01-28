@@ -17,5 +17,15 @@
     <string name="title_activity_claims">ClaimsActivity</string>
     <string name="title_activity_new_expense">NewExpenseActivity</string>
     <string name="title_activity_claim_status">ClaimStatusActivity</string>
+    <string name="AddExpense">Add Expense</string>
+    <string name="CreateANewClaim">Create a New Claim</string>
+    <string name="DescriptionDestination">Description e.g. Taxi to YEG</string>
+    <string name="DateFormat">YYYY/MM/DD</string>
+    <string name="YourDestination">Your Destination</string>
+    <string name="From">From</string>
+    <string name="To">To</string>
+    <string name="SubmitDestination">Submit Destination</string>
+    <string name="Claims">Claims</string>
+    <string name="ClaimsStatus">Claims Status</string>
 
 </resources>

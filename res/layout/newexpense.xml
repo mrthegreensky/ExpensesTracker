@@ -11,7 +11,7 @@
         android:layout_below="@+id/DateText"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Description e.g. Taxi to YEG" />
+        android:hint="@string/DescriptionDestination" />
 
     <EditText
         android:id="@+id/DateText"
@@ -21,7 +21,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="56dp"
         android:ems="10"
-        android:hint="YYYY/MM/DD"
+        android:hint="@string/DateFormat"
         android:inputType="date" />
 
     <Button

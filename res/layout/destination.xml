@@ -7,7 +7,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your destination"
+        android:text="@string/YourDestination"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <EditText
@@ -23,7 +23,7 @@
         android:id="@+id/FromText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="From"
+        android:text="@string/From"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <EditText
@@ -31,14 +31,14 @@
         android:layout_width="148dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="YYYY/MM/DD"
+        android:hint="@string/DateFormat"
         android:inputType="date" />
 
     <TextView
         android:id="@+id/ToText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="To"
+        android:text="@string/To"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <EditText
@@ -46,14 +46,14 @@
         android:layout_width="146dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="YYYY/MM/DD"
+        android:hint="@string/DateFormat"
         android:inputType="date" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Submit Destination" />
+        android:text="@string/SubmitDestination" />
 
 
 
