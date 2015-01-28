@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.expensestracker.ExpenseActivity" >
+    <item android:id="@+id/AddExpenseItem" android:title="@string/AddExpense" android:onClick="AddExpense"></item>
+
+</menu>

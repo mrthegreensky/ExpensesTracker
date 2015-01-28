@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.expensestracker.ClaimsActivity" >
+    <item android:id="@+id/CreateANewClaimItem" android:onClick="CreateANewClaim" android:title="@string/CreateANewClaim"></item>
+
+</menu>
