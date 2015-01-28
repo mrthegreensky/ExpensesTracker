@@ -22,6 +22,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DestinationActivity"
+            android:label="@string/title_activity_destination" >
+        </activity>
+        <activity
+            android:name=".ExpenseActivity"
+            android:label="@string/title_activity_expense" >
+        </activity>
+        <activity
+            android:name=".ClaimsActivity"
+            android:label="@string/title_activity_claims" >
+        </activity>
+        <activity
+            android:name=".NewExpenseActivity"
+            android:label="@string/title_activity_new_expense" >
+        </activity>
+        <activity
+            android:name=".ClaimStatusActivity"
+            android:label="@string/title_activity_claim_status" >
+        </activity>
     </application>
 
 </manifest>

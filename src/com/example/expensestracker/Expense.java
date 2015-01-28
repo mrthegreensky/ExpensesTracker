@@ -13,8 +13,7 @@ public class Expense {
 	
 	private String category;
 	private String description;
-	private Date date; // May have to use calendar 
-	private Calendar calendar; // If I have to use Calendar
+	private Date date; // May have to use calendar
 	
 	public void expense(int cost, String currency, String category, String description, String date) {
 		this.cost = cost;

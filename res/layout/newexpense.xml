@@ -4,17 +4,6 @@
     android:layout_height="match_parent" >
 
     <EditText
-        android:id="@+id/AmountText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/DateText"
-        android:layout_below="@+id/DescriptionText"
-        android:layout_marginTop="150dp"
-        android:ems="10"
-        android:hint="Amount Spent"
-        android:inputType="numberDecimal" />
-
-    <EditText
         android:id="@+id/DescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +21,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="56dp"
         android:ems="10"
-        android:hint="Date"
+        android:hint="YYYY/MM/DD"
         android:inputType="date" />
 
     <Button
@@ -45,13 +34,13 @@
         android:text="OK" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/DateExpense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="14dp"
-        android:text="TextView" />
+        android:text="Date of Expense" />
 
     <TextView
         android:id="@+id/textView2"
@@ -62,11 +51,27 @@
         android:layout_marginTop="47dp"
         android:text="TextView" />
 
-    <TextView
-        android:id="@+id/textView3"
+    <EditText
+        android:id="@+id/AmountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:text="TextView" />
+        android:layout_above="@+id/button1"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Amount Spent"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <Spinner
+        android:id="@+id/CurrencySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/AmountText"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignParentRight="true"
+        android:entries="@array/Currency_Spinner" />
 
 </RelativeLayout>

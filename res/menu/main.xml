@@ -2,13 +2,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.expensestracker.MainActivity" >
 
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-    <item android:id="@+id/CreateNewClaimItem" android:title="Create a New Claim"></item>
-    <item android:id="@+id/EditClaimItem" android:title="Edit Claim"></item>
-    <item android:id="@+id/DeleteClaimItem" android:title="Delete Claim"></item>
-
 </menu>
