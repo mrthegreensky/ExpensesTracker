@@ -15,6 +15,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		
 		TextView Claims =(TextView)findViewById(R.id.ClaimsExpenses);
 		if(Claims!= null) {
 			Claims.setOnClickListener(this);
@@ -24,6 +25,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			ClaimStatus.setOnClickListener(this);
 		}
 	}
+	
 	
 	@Override
 	public void onClick(View selectedView) {

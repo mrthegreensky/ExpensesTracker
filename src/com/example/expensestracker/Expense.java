@@ -8,8 +8,6 @@ public class Expense {
 	
 	private String currency;
 	private int cost;
-	
-	
 	private String category;
 	private String description;
 	private Date date;
@@ -20,9 +18,9 @@ public class Expense {
 		this.category = category;
 		this.description = description;
 		try{
-		this.date = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+		this.date = new SimpleDateFormat("yyyy/MM/dd").parse(date);
 		} catch(ParseException e) {
-			System.out.println("Please input a valid date for your birthday in the format of yyyy-MM-dd");
+			System.out.println("Please input a valid date for your birthday in the format of YYYY/MM/dd");
 		}
 	}
 	
@@ -44,7 +42,7 @@ public class Expense {
 	}
 	
 	public String getDate() {
-		return new SimpleDateFormat("yyyy-MM-dd").format(this.date);
+		return new SimpleDateFormat("YYYY/MM/dd").format(this.date);
 	}
 
 }

@@ -8,20 +8,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.expensestracker.ClaimsActivity" >
 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="57dp" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-        </LinearLayout>
-    </ScrollView>
+    <ListView
+        android:id="@+id/ClaimsList"
+        android:layout_width="fill_parent"
+        android:layout_height="263dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical" >
+    </ListView>
 
 </RelativeLayout>
