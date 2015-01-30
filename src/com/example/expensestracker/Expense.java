@@ -1,11 +1,16 @@
 package com.example.expensestracker;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.ParseException;
 
-public class Expense {
+
+//Not sure if this class needs Serializable
+public class Expense implements Serializable{
 	
+	//Auto-generated serialVersionUID
+	private static final long serialVersionUID = 6479358641782024794L;
 	private String currency;
 	private int cost;
 	private String category;

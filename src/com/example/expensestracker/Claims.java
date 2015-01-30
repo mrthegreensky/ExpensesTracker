@@ -10,19 +10,21 @@ public class Claims extends Destination implements Serializable{
 	//Auto-generated SerialVersionUID when implemented Serializable
 	private static final long serialVersionUID = 703850910971252373L;
 
-	protected List<Expense> list = new ArrayList<Expense>();
+	protected List<Expense> list;
 	
-	private int status = 0; // where status = 0 not submitted and is the default status
+	private int status; // where status = 0 not submitted and is the default status
 						// status = 1 is submitted but still being reviewed
 						// status = 2 is rejected/returned and needs improvements to be done
 						// status = 3 is accepted no further edits allowed
 	
 	public Claims(String YourDestination, Date StartDate, Date EndDate) {
 		super(YourDestination, StartDate, EndDate);
+		list = new ArrayList<Expense>();
+		status = 0;
 	}
 	
 	public void addClaim(Expense expense) {
-		list.add(expense);	;;
+		list.add(expense);
 	}
 	
 	public void removeClaim(Expense expense) {
@@ -36,6 +38,15 @@ public class Claims extends Destination implements Serializable{
 	public List<Expense> getClaims() {
 		return list;
 	}
+	
+	public Expense getClaim() {
+		//Returns last claim
+		if(list.size()>0) {
+			return list.remove(list.size());
+		}
+		return null;
+	}
+	
 	
 	public int getStatus() {
 		return this.status;

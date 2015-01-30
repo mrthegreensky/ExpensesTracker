@@ -25,5 +25,11 @@ public class Destination {
 	public Date getEndDate() {
 		return EndDate;
 	}
+	
+	public void resetDestination(String YourDestination, Date StartDate, Date EndDate) {
+		this.YourDestination = YourDestination;
+		this.StartDate = StartDate;
+		this.EndDate = EndDate;
+	}
 
 }

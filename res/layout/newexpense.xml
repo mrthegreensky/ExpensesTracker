@@ -11,26 +11,19 @@
             android:id="@+id/DescriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:ems="10"
+            android:layout_alignParentStart="true"
+            android:ems="11"
             android:hint="@string/DescriptionDestination" />
-
-        <TextView
-            android:id="@+id/DateExpense"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date of Expense" 
-            android:layout_below="@+id/DescriptionText"/>
 
         <EditText
             android:id="@+id/AmountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/datePickerExpense"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="60dp"
             android:ems="7"
-            android:hint="Amount Spent"
+            android:hint="@string/AmountSpent"
             android:inputType="numberDecimal" />
 
         <Spinner
@@ -38,25 +31,33 @@
             android:layout_width="142dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/AmountText"
-            android:layout_alignRight="@+id/button1"
+            android:layout_alignEnd="@+id/button1"
             android:layout_toEndOf="@+id/AmountText"
             android:entries="@array/Currency_Spinner" />
-
-        <DatePicker
-            android:id="@+id/datePickerExpense"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/DateExpense"
-            android:layout_marginTop="20dp"
-            android:calendarViewShown="false" />
 
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/datePickerExpense"
+            android:layout_alignEnd="@+id/datePickerExpense"
             android:layout_below="@+id/CurrencySpinner"
-            android:text="OK" />
+            android:text="@string/OK" />
+
+        <TextView
+            android:id="@+id/DateExpense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/DescriptionText"
+            android:layout_marginTop="24dp"
+            android:text="@string/DateOfExpense" />
+
+        <DatePicker
+            android:id="@+id/datePickerExpense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/DateExpense"
+            android:calendarViewShown="false" />
 
     </RelativeLayout>
