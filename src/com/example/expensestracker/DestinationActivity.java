@@ -10,6 +10,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -32,7 +33,8 @@ public class DestinationActivity extends Activity {
 	//These attributes were borrowed and modified from lab 3 code
 	private static final String FILENAME = "Claims.sav";
 	private ListView ClaimsList;
-	private Claims claims;
+	private ArrayList<Claims> claims;
+	private ArrayAdapter<Claims> adapter;
 	
 	private DatePicker toDate;
 	private DatePicker fromDate;
@@ -44,7 +46,6 @@ public class DestinationActivity extends Activity {
 	private Button okButton;
 	private EditText userDestination;
 	
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,19 +55,21 @@ public class DestinationActivity extends Activity {
 		ClaimsList = (ListView) findViewById(R.id.ClaimsList); //Borrowed and modified from lab 3 code	
 		okButton = (Button) findViewById(R.id.SubmitDestination);
 		userDestination = (EditText) findViewById(R.id.DestinationText);
+		claims = new ArrayList<Claims>();
+		
 		
 		//Have to check if button is pressed  and if there is input in the Destination EditText
 		if(okButton!= null && userDestination.toString().length() > 0) {
 			
 			fromDate = (DatePicker)findViewById(R.id.FromDatePicker);
 			toDate = (DatePicker)findViewById(R.id.ToDatePicker);
-			
-			claims = new Claims(userDestination.toString(), getDate(toDate), getDate(fromDate));
-			//saveInFile(claims);
+			Claims newClaim = new Claims(userDestination.toString(), getDate(toDate), getDate(fromDate));
+			claims.add(newClaim);
+			saveInFile(claims);
 			
 			//Borrowed from http://stackoverflow.com/questions/15393899/how-to-close-activity-and-go-back-to-previous-activity-in-android 
 			//Last accessed Jan 30, 1:26 PM 
-			super.onBackPressed();
+			//super.onBackPressed();
 			
 		}
 		
@@ -84,14 +87,6 @@ public class DestinationActivity extends Activity {
 	}
 	
 	
-	/*
-	The following links were used for the date picker: 
-	http://developer.android.com/guide/topics/ui/controls/pickers.html
-	http://www.mkyong.com/android/android-date-picker-example/
-	Last accessed on January 29, 5:51 PM
-	Portions of this page are modifications based on work created and shared by the Android Open Source Project and used according to terms described in the Creative Commons 2.5 Attribution License. 
-	*/
-	
 	public void setCurrentDateToview() {
 		
 		fromDate = (DatePicker)findViewById(R.id.FromDatePicker);
@@ -104,11 +99,7 @@ public class DestinationActivity extends Activity {
 		
 		fromDate.init(year, month, day, null);
 		toDate.init(year, month, day, null);
-	}
-	
-	protected void onStart() {
 		
-		super.onStart();
 		
 	}
 	
@@ -123,16 +114,17 @@ public class DestinationActivity extends Activity {
 		return true;
 	}
 	
+	
 	//loadFromFile and saveInFile methods borrowed and modified from Lab3 code. 
-	private Claims loadFromFile() {
+	private ArrayList<Claims> loadFromFile() {
 		Gson gson = new Gson();
-		claims = null;
+		ArrayList<Claims> claims = null;
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
 			InputStreamReader isr = new InputStreamReader(fis);
 			
 			//Based on http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html accessed on Jan 22, at 15:58
-			Type listType = new TypeToken<ArrayList<String>>() {}.getType();
+			Type listType = new TypeToken<ArrayList<Claims>>() {}.getType();
 			claims = gson.fromJson(isr, listType);
 			fis.close();
 		} catch (FileNotFoundException e) {
@@ -143,14 +135,14 @@ public class DestinationActivity extends Activity {
 			e.printStackTrace();
 		}
 		if(claims == null) {
-			claims = null;
+			claims = new ArrayList<Claims>();
 		}
 		
 		return claims;
 	}
 	
 	
-	private void saveInFile(Claims claims) {
+	private void saveInFile(ArrayList<Claims> claims) {
 		Gson gson = new Gson();
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME, 0); // zero is the default thing that will clear it when it opens 
@@ -168,3 +160,13 @@ public class DestinationActivity extends Activity {
 	}
 
 }
+
+
+/*
+The following links were used for the date picker: 
+http://developer.android.com/guide/topics/ui/controls/pickers.html
+http://www.mkyong.com/android/android-date-picker-example/
+Last accessed on January 29, 5:51 PM
+Portions of this page are modifications based on work created and shared by the Android Open Source Project and used according to terms described in the Creative Commons 2.5 Attribution License. 
+*/
+

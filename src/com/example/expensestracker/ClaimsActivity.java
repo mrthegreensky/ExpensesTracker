@@ -27,8 +27,8 @@ public class ClaimsActivity extends Activity {
 	//the following attributes were borrowed and modified from lab 3 code
 	private static final String FILENAME = "Claims.sav";
 	private ListView ClaimsList;
-	private ArrayList<String> claims;
-	private ArrayAdapter<String> adapter;
+	private ArrayList<Claims> claims;
+	private ArrayAdapter<Claims> adapter;
 	
 	
 	@Override
@@ -66,16 +66,16 @@ public class ClaimsActivity extends Activity {
 	}
 	
 	
-	//loadFromFile method borrowed and modified from Lab3 code. 
-	private ArrayList<String> loadFromFile() {
+	//loadFromFile and saveInFile methods borrowed and modified from Lab3 code. 
+	private ArrayList<Claims> loadFromFile() {
 		Gson gson = new Gson();
-		ArrayList<String> claims = null;
+		ArrayList<Claims> claims = null;
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
 			InputStreamReader isr = new InputStreamReader(fis);
 			
 			//Based on http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html accessed on Jan 22, at 15:58
-			Type listType = new TypeToken<ArrayList<String>>() {}.getType();
+			Type listType = new TypeToken<ArrayList<Claims>>() {}.getType();
 			claims = gson.fromJson(isr, listType);
 			fis.close();
 		} catch (FileNotFoundException e) {
@@ -86,7 +86,7 @@ public class ClaimsActivity extends Activity {
 			e.printStackTrace();
 		}
 		if(claims == null) {
-			claims = new ArrayList<String>();
+			claims = new ArrayList<Claims>();
 		}
 		
 		return claims;
