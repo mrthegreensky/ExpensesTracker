@@ -57,21 +57,24 @@ public class DestinationActivity extends Activity {
 		userDestination = (EditText) findViewById(R.id.DestinationText);
 		claims = new ArrayList<Claims>();
 		
-		
 		//Have to check if button is pressed  and if there is input in the Destination EditText
-		if(okButton!= null && userDestination.toString().length() > 0) {
-			
-			fromDate = (DatePicker)findViewById(R.id.FromDatePicker);
-			toDate = (DatePicker)findViewById(R.id.ToDatePicker);
-			Claims newClaim = new Claims(userDestination.toString(), getDate(toDate), getDate(fromDate));
-			claims.add(newClaim);
-			saveInFile(claims);
-			
-			//Borrowed from http://stackoverflow.com/questions/15393899/how-to-close-activity-and-go-back-to-previous-activity-in-android 
-			//Last accessed Jan 30, 1:26 PM 
-			//super.onBackPressed();
-			
+		//Uses anonymous function, borrowed and modified from LonelyTwitterActivity
+		if(userDestination.toString().trim().length() > 0) {
+		
+			okButton.setOnClickListener(new View.OnClickListener() {
+
+				public void onClick(View v) {			
+					fromDate = (DatePicker)findViewById(R.id.FromDatePicker);
+					toDate = (DatePicker)findViewById(R.id.ToDatePicker);
+					Claims newClaim = new Claims(userDestination.toString(), getDate(toDate), getDate(fromDate));
+					claims.add(newClaim);
+					saveInFile(claims);
+					finish();
+					}
+			});
+		
 		}
+		
 		
 	}
 	

@@ -43,9 +43,9 @@ public class ClaimsActivity extends Activity {
 	protected void onStart() {
 		
 		super.onStart();
-		//claims = loadFromFile();
-		//adapter = new ArrayAdapter<String>(this, R.layout.claims_list, claims);
-		//ClaimsList.setAdapter(adapter);
+		claims = loadFromFile();
+		adapter = new ArrayAdapter<Claims>(this, R.layout.claims_list, claims);
+		ClaimsList.setAdapter(adapter);
 		
 	}
 	
