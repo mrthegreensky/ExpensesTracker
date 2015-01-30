@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import com.google.gson.Gson;
@@ -16,8 +17,13 @@ import com.google.gson.reflect.TypeToken;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class DestinationActivity extends Activity {
 	
@@ -28,6 +34,15 @@ public class DestinationActivity extends Activity {
 	private ArrayList<Claims> claims;
 	private ArrayAdapter<Claims> adapter;
 	
+	private DatePicker toDate;
+	private DatePicker fromDate;
+	
+	private Integer year;
+	private Integer month;
+	private Integer day;
+	
+	private Button okButton;
+	
 	
 
 	@Override
@@ -35,9 +50,31 @@ public class DestinationActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.destination);
 		
-		ClaimsList = (ListView) findViewById(R.id.ClaimsList); //Borrowed and modified from lab 3 code
+		ClaimsList = (ListView) findViewById(R.id.ClaimsList); //Borrowed and modified from lab 3 code	
+		
+		
 	}
-
+	
+	public void setCurrentDateToview() {
+		
+		fromDate = (DatePicker)findViewById(R.id.FromDatePicker);
+		toDate = (DatePicker)findViewById(R.id.ToDatePicker);
+		
+		final Calendar calendar = Calendar.getInstance();
+		year = calendar.get(Calendar.YEAR);
+		month = calendar.get(Calendar.MONTH) + 1;
+		day = calendar.get(Calendar.DAY_OF_MONTH);		
+		
+		fromDate.init(year, month, day, null);
+		toDate.init(year, month, day, null);
+		
+		
+	}
+	
+	
+	
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -90,3 +127,13 @@ public class DestinationActivity extends Activity {
 	}
 
 }
+
+
+/*
+The following links were used for the date picker: 
+http://developer.android.com/guide/topics/ui/controls/pickers.html
+http://www.mkyong.com/android/android-date-picker-example/
+Last accessed on January 29, 5:51 PM
+Portions of this page are modifications based on work created and shared by the Android Open Source Project and used according to terms described in the Creative Commons 2.5 Attribution License. 
+*/
+

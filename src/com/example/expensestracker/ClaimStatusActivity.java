@@ -9,7 +9,7 @@ public class ClaimStatusActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.claimstatus);
+		setContentView(R.layout.claimstatus); 
 	}
 
 	@Override

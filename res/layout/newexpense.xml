@@ -1,77 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
 
-    <EditText
-        android:id="@+id/DescriptionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/DateText"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:hint="@string/DescriptionDestination" />
+    <RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/DateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:hint="@string/DateFormat"
-        android:inputType="date" />
+        <EditText
+            android:id="@+id/DescriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:ems="10"
+            android:hint="@string/DescriptionDestination" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="15dp"
-        android:layout_toRightOf="@+id/AmountText"
-        android:text="OK" />
+        <TextView
+            android:id="@+id/DateExpense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Expense" 
+            android:layout_below="@+id/DescriptionText"/>
 
-    <TextView
-        android:id="@+id/DateExpense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="14dp"
-        android:text="Date of Expense" />
+        <EditText
+            android:id="@+id/AmountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/datePickerExpense"
+            android:layout_marginTop="32dp"
+            android:ems="7"
+            android:hint="Amount Spent"
+            android:inputType="numberDecimal" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/DateText"
-        android:layout_marginTop="47dp"
-        android:text="TextView" />
+        <Spinner
+            android:id="@+id/CurrencySpinner"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/AmountText"
+            android:layout_alignRight="@+id/button1"
+            android:layout_toEndOf="@+id/AmountText"
+            android:entries="@array/Currency_Spinner" />
 
-    <EditText
-        android:id="@+id/AmountText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="24dp"
-        android:ems="10"
-        android:hint="Amount Spent"
-        android:inputType="numberDecimal" >
+        <DatePicker
+            android:id="@+id/datePickerExpense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/DateExpense"
+            android:layout_marginTop="20dp"
+            android:calendarViewShown="false" />
 
-        <requestFocus />
-    </EditText>
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/datePickerExpense"
+            android:layout_below="@+id/CurrencySpinner"
+            android:text="OK" />
 
-    <Spinner
-        android:id="@+id/CurrencySpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/AmountText"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignParentRight="true"
-        android:entries="@array/Currency_Spinner" />
-
-</RelativeLayout>
+    </RelativeLayout>
