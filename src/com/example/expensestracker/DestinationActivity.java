@@ -16,6 +16,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -59,11 +61,15 @@ public class DestinationActivity extends Activity {
 		
 		//Have to check if button is pressed  and if there is input in the Destination EditText
 		//Uses anonymous function, borrowed and modified from LonelyTwitterActivity
-		if(userDestination.toString().trim().length() > 0) {
+			
 		
+		
+		if(userDestination.toString().trim().length() > 0) {
+			
 			okButton.setOnClickListener(new View.OnClickListener() {
 
-				public void onClick(View v) {			
+				public void onClick(View v) {
+					claims = loadFromFile();
 					fromDate = (DatePicker)findViewById(R.id.FromDatePicker);
 					toDate = (DatePicker)findViewById(R.id.ToDatePicker);
 					Claims newClaim = new Claims(userDestination.toString(), getDate(toDate), getDate(fromDate));
@@ -85,8 +91,8 @@ public class DestinationActivity extends Activity {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(year, month, day);
 		
-		
 		return calendar.getTime();
+		
 	}
 	
 	
