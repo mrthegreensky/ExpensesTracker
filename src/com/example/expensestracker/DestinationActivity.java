@@ -72,7 +72,7 @@ public class DestinationActivity extends Activity {
 					claims = loadFromFile();
 					fromDate = (DatePicker)findViewById(R.id.FromDatePicker);
 					toDate = (DatePicker)findViewById(R.id.ToDatePicker);
-					Claims newClaim = new Claims(userDestination.toString(), getDate(toDate), getDate(fromDate));
+					Claims newClaim = new Claims(userDestination.getText().toString(), getDate(toDate), getDate(fromDate));
 					claims.add(newClaim);
 					saveInFile(claims);
 					finish();

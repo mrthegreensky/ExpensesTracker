@@ -12,7 +12,7 @@ public class Claims extends Destination implements Serializable{
 
 	protected List<Expense> list;
 	
-	private int status; // where status = 0 not submitted and is the default status
+	private String status; // where status = 0 not submitted and is the default status
 						// status = 1 is submitted but still being reviewed
 						// status = 2 is rejected/returned and needs improvements to be done
 						// status = 3 is accepted no further edits allowed
@@ -20,7 +20,7 @@ public class Claims extends Destination implements Serializable{
 	public Claims(String YourDestination, Date StartDate, Date EndDate) {
 		super(YourDestination, StartDate, EndDate);
 		list = new ArrayList<Expense>();
-		status = 0;
+		status = "Not submitted";
 	}
 	
 	public void addClaim(Expense expense) {
@@ -48,20 +48,20 @@ public class Claims extends Destination implements Serializable{
 	}
 	
 	
-	public int getStatus() {
+	public String getStatus() {
 		return this.status;
 	}
 	
 	public void setSubmit() {	
-		this.status = 1;
+		this.status = "Pending Review";
 	}
 	
 	public void setReject() {
-		this.status = 2;
+		this.status = "Rejected, Pending Review";
 	}
 	
 	public void setAccept() {
-		this.status = 3;
+		this.status = "Accepted";
 	}
 
 }

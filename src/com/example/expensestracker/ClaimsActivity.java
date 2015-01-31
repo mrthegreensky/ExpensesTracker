@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,7 +35,7 @@ public class ClaimsActivity extends Activity {
 	private static final String FILENAME = "Claims.sav";
 	private ListView ClaimsList;
 	private ArrayList<Claims> claims;
-	private ArrayAdapter<Claims> adapter;
+	private CustomArrayAdapter adapter;
 	
 	
 	@Override
@@ -44,21 +45,9 @@ public class ClaimsActivity extends Activity {
 		
 		ClaimsList = (ListView) findViewById(R.id.ClaimsList); //this line of code was borrowed and modified from lab 3 code 
 		
-		/*
-		ClaimsList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-			
-			public boolean onItemLongClick(AdapterView<?> arg0, View v, int index, long arg3) {
-				
-				
-				return true;
-			}
-			
-		});
-		*/
-		
-		//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
-		//Last accessed on January 30 
-		//registerForContextMenu(ClaimsList);
+		//Borrowed and modified from http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
+		//Last accessed Jan 31, 2015 at 11:38 AM
+		registerForContextMenu(ClaimsList);
 		
 		
 	}
@@ -69,37 +58,45 @@ public class ClaimsActivity extends Activity {
 		super.onStart();
 		claims = loadFromFile(); //Load the ArrayList so we can keep the previous list and just append and save
 
-		adapter = new ArrayAdapter<Claims>(this, R.layout.claims_list, claims);
+		adapter = new CustomArrayAdapter(ClaimsActivity.this, claims);
 		ClaimsList.setAdapter(adapter);
 	}
 	
-	/*
-	public boolean onLongClick(View v) {
-		return true;
-	}
-	*/
 	
-	
-	//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
-	//Last accessed on January 30 
-	public void onCreateTextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
+	//Following two methods orrowed and modified from http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
+	//Last accesed Jan 31 2015 at 11:38 AM
+	public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
+		
 		super.onCreateContextMenu(contextMenu, view, menuInfo);	
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+		
 		contextMenu.setHeaderTitle(claims.get(info.position).getYourDestination());
-		String[] menuItems = getResources().getStringArray(R.array.Claims_Menu);
-		for(int i = 0; i < menuItems.length; i++) {
-			contextMenu.add(Menu.NONE, i, i, menuItems[i]);
-		}
+		contextMenu.add(0,view.getId(), 0, "Expenses");
+		contextMenu.add(0, view.getId(), 1,"Edit");
+		contextMenu.add(0, view.getId(), 2, "Delete");
+		contextMenu.add(0, view.getId(), 3, "Submit");
+		
 	}
 	
-	/*
-	public void onContextMenuSelected(MenuItem item) {
-		switch(item.getItemId()) {
-		case Edit:
+	
+	public boolean onContextItemSelected(MenuItem item) {
+		if(item.getTitle() == "Expenses") {
 			
+		} else if(item.getTitle() == "Edit") {
+			
+		} else if(item.getTitle() == "Delete") {
+			AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+			adapter.remove(claims.get(info.position));
+			claims.remove(info.position);
+		} else if(item.getTitle() == "Submit") {
+			
+		} else {
+			return false;
 		}
+			return true;
+		
 	}
-	*/
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
