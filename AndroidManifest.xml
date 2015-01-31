@@ -42,6 +42,10 @@
             android:name=".ClaimStatusActivity"
             android:label="@string/title_activity_claim_status" >
         </activity>
+        <activity
+            android:name=".EditDestinationActivity"
+            android:label="@string/title_activity_edit_destination" >
+        </activity>
     </application>
 
 </manifest>

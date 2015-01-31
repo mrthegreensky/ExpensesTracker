@@ -82,9 +82,11 @@ public class ClaimsActivity extends Activity {
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 		if(item.getTitle() == "Expenses") {
-			
+			Intent intent = new Intent(ClaimsActivity.this, ExpenseActivity.class);
+			startActivity(intent);
 		} else if(item.getTitle() == "Edit") {
-			
+			Intent intent = new Intent(ClaimsActivity.this, EditDestinationActivity.class);
+			startActivity(intent);
 		} else if(item.getTitle() == "Delete") {
 			adapter.remove(claims.get(info.position));
 		} else if(item.getTitle() == "Submit") {
