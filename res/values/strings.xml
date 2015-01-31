@@ -31,5 +31,10 @@
     <string name="OK">OK</string>
     <string name="AmountSpent">Amount Spent</string>
     <string name="DateOfExpense">Date of Expense</string>
+    <string-array name="Claims_Menu">
+        <item >Edit</item>
+        <item >Delete</item>
+        <item >Submit</item>
+    </string-array>
 
 </resources>

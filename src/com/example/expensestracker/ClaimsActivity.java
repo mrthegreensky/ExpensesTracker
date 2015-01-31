@@ -16,10 +16,16 @@ import com.google.gson.reflect.TypeToken;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnLongClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ClaimsActivity extends Activity {
@@ -37,18 +43,63 @@ public class ClaimsActivity extends Activity {
 		setContentView(R.layout.claims_activity);
 		
 		ClaimsList = (ListView) findViewById(R.id.ClaimsList); //this line of code was borrowed and modified from lab 3 code 
+		
+		/*
+		ClaimsList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+			
+			public boolean onItemLongClick(AdapterView<?> arg0, View v, int index, long arg3) {
+				
+				
+				return true;
+			}
+			
+		});
+		*/
+		
+		//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
+		//Last accessed on January 30 
+		//registerForContextMenu(ClaimsList);
+		
+		
 	}
 
 	//The following method was borrowed and modified from lab 3 code 
 	protected void onStart() {
 		
 		super.onStart();
-		claims = loadFromFile();
+		claims = loadFromFile(); //Load the ArrayList so we can keep the previous list and just append and save
+
 		adapter = new ArrayAdapter<Claims>(this, R.layout.claims_list, claims);
 		ClaimsList.setAdapter(adapter);
-		
 	}
 	
+	/*
+	public boolean onLongClick(View v) {
+		return true;
+	}
+	*/
+	
+	
+	//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
+	//Last accessed on January 30 
+	public void onCreateTextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(contextMenu, view, menuInfo);	
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+		contextMenu.setHeaderTitle(claims.get(info.position).getYourDestination());
+		String[] menuItems = getResources().getStringArray(R.array.Claims_Menu);
+		for(int i = 0; i < menuItems.length; i++) {
+			contextMenu.add(Menu.NONE, i, i, menuItems[i]);
+		}
+	}
+	
+	/*
+	public void onContextMenuSelected(MenuItem item) {
+		switch(item.getItemId()) {
+		case Edit:
+			
+		}
+	}
+	*/
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
