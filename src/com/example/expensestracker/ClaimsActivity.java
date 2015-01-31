@@ -68,7 +68,7 @@ public class ClaimsActivity extends Activity {
 	public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
 		
 		super.onCreateContextMenu(contextMenu, view, menuInfo);	
-		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo)menuInfo;
 		
 		contextMenu.setHeaderTitle(claims.get(info.position).getYourDestination());
 		contextMenu.add(0,view.getId(), 0, "Expenses");
@@ -80,20 +80,22 @@ public class ClaimsActivity extends Activity {
 	
 	
 	public boolean onContextItemSelected(MenuItem item) {
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 		if(item.getTitle() == "Expenses") {
 			
 		} else if(item.getTitle() == "Edit") {
 			
 		} else if(item.getTitle() == "Delete") {
-			AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 			adapter.remove(claims.get(info.position));
-			claims.remove(info.position);
 		} else if(item.getTitle() == "Submit") {
-			
+			Claims claim = adapter.getItem(info.position);
+			adapter.Submit(info.position, claim);
 		} else {
 			return false;
 		}
-			return true;
+		saveInFile(claims);
+		adapter.notifyDataSetChanged();
+		return true;
 		
 	}
 	
@@ -140,5 +142,21 @@ public class ClaimsActivity extends Activity {
 		return claims;
 	}
 	
+	private void saveInFile(ArrayList<Claims> claims) {
+		Gson gson = new Gson();
+		try {
+			FileOutputStream fos = openFileOutput(FILENAME, 0); // zero is the default thing that will clear it when it opens 
+			OutputStreamWriter osw = new OutputStreamWriter(fos);
+			gson.toJson(claims, osw);
+			osw.flush(); // flush after writing
+			fos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

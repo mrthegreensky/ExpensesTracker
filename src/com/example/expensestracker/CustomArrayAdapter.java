@@ -27,6 +27,13 @@ public class CustomArrayAdapter extends ArrayAdapter<Claims> {
 		return claims.get(position);
 	}
 	
+	public void Submit(int position, Claims newClaim) {
+		newClaim.setSubmit();
+		claims.remove(position);
+		claims.add(position, newClaim);
+	}
+	
+	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
