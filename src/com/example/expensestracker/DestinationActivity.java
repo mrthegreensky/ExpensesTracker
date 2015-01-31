@@ -36,7 +36,6 @@ public class DestinationActivity extends Activity {
 	private static final String FILENAME = "Claims.sav";
 	private ListView ClaimsList;
 	private ArrayList<Claims> claims;
-	private ArrayAdapter<Claims> adapter;
 	
 	private DatePicker toDate;
 	private DatePicker fromDate;
@@ -61,9 +60,6 @@ public class DestinationActivity extends Activity {
 		
 		//Have to check if button is pressed  and if there is input in the Destination EditText
 		//Uses anonymous function, borrowed and modified from LonelyTwitterActivity
-			
-		
-		
 		if(userDestination.toString().trim().length() > 0) {
 			
 			okButton.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +118,7 @@ public class DestinationActivity extends Activity {
 	
 	
 	//loadFromFile and saveInFile methods borrowed and modified from Lab3 code. 
-	private ArrayList<Claims> loadFromFile() {
+	protected ArrayList<Claims> loadFromFile() {
 		Gson gson = new Gson();
 		ArrayList<Claims> claims = null;
 		try {
@@ -148,7 +144,7 @@ public class DestinationActivity extends Activity {
 	}
 	
 	
-	private void saveInFile(ArrayList<Claims> claims) {
+	protected void saveInFile(ArrayList<Claims> claims) {
 		Gson gson = new Gson();
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME, 0); // zero is the default thing that will clear it when it opens 

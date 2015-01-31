@@ -70,6 +70,7 @@ public final class R {
         public static final int new_expense=0x7f080006;
     }
     public static final class string {
+        public static final int Accepted=0x7f05001a;
         public static final int AddExpense=0x7f050008;
         public static final int AmountSpent=0x7f050014;
         public static final int Claims=0x7f050010;
@@ -80,7 +81,10 @@ public final class R {
         public static final int DescriptionClaim=0x7f050012;
         public static final int DescriptionDestination=0x7f05000a;
         public static final int From=0x7f05000d;
+        public static final int NotSubmitted=0x7f050017;
         public static final int OK=0x7f050013;
+        public static final int PendingReview=0x7f050018;
+        public static final int Rejected=0x7f050019;
         public static final int SubmitDestination=0x7f05000f;
         public static final int To=0x7f05000e;
         public static final int YourDestination=0x7f05000c;

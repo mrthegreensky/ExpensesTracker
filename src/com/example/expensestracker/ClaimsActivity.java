@@ -84,17 +84,29 @@ public class ClaimsActivity extends Activity {
 		if(item.getTitle() == "Expenses") {
 			Intent intent = new Intent(ClaimsActivity.this, ExpenseActivity.class);
 			startActivity(intent);
+			
+		//Use of bundle borrowed and modified from http://stackoverflow.com/questions/14333449/passing-data-through-intent-using-serializable
+		//Last accessed Jan 31, 2015 at 2:33 PM
 		} else if(item.getTitle() == "Edit") {
 			Intent intent = new Intent(ClaimsActivity.this, EditDestinationActivity.class);
+			Claims inputClaim = claims.get(info.position);
+			Bundle bundle = new Bundle();
+			bundle.putSerializable("Claim", inputClaim);
+			intent.putExtra("Claim", bundle);
 			startActivity(intent);
+			
 		} else if(item.getTitle() == "Delete") {
 			adapter.remove(claims.get(info.position));
+			
 		} else if(item.getTitle() == "Submit") {
 			Claims claim = adapter.getItem(info.position);
+			
 			adapter.Submit(info.position, claim);
 		} else {
 			return false;
+			
 		}
+		
 		saveInFile(claims);
 		adapter.notifyDataSetChanged();
 		return true;

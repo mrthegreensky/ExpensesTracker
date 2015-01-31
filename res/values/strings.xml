@@ -39,5 +39,9 @@
     </string-array>
 
     <string name="title_activity_edit_destination">EditDestinationActivity</string>
+    <string name="NotSubmitted">Not Submitted</string>
+    <string name="PendingReview">Pending Review</string>
+    <string name="Rejected">Rejected, Pending Review From User</string>
+    <string name="Accepted">Accepted</string>
 
 </resources>

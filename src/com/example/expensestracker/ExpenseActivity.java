@@ -1,14 +1,19 @@
 package com.example.expensestracker;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 public class ExpenseActivity extends Activity {
 
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,4 +32,11 @@ public class ExpenseActivity extends Activity {
 		Intent intent = new Intent(ExpenseActivity.this, NewExpenseActivity.class);
 		startActivity(intent);
 	}
+	
+	
+	
+	
+	
+	
+	
 }
