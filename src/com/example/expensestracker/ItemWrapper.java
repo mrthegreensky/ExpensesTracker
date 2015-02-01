@@ -8,13 +8,13 @@ public class ItemWrapper implements Serializable{
 	private static final long serialVersionUID = -8284844760144894886L;
 	
 	private ArrayList<Claims> claims;
-	
+
 	public ItemWrapper(ArrayList<Claims> claims) {
 		this.claims = claims;
 	}
 	
-	public ArrayList<Claims> getArray() {
+	public ArrayList<Claims> getArrayList() {
 		return this.claims;
 	}
-		
+	
 }

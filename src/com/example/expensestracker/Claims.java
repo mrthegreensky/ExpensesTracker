@@ -23,23 +23,23 @@ public class Claims extends Destination implements Serializable{
 		status = "Not submitted";
 	}
 	
-	public void addClaim(Expense expense) {
+	public void addExpense(Expense expense) {
 		list.add(expense);
 	}
 	
-	public void removeClaim(Expense expense) {
+	public void removeExpense(Expense expense) {
 		list.remove(expense);
 	}
 	
-	public void replaceClaim(Expense oldexpense, Expense newexpense) {
+	public void replaceExpense(Expense oldexpense, Expense newexpense) {
 		list.set(list.indexOf(oldexpense), newexpense);
 	}
 	
-	public List<Expense> getClaims() {
+	public List<Expense> getExpenses() {
 		return list;
 	}
 	
-	public Expense getClaim() {
+	public Expense getExpense() {
 		//Returns last claim
 		if(list.size()>0) {
 			return list.remove(list.size());

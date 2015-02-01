@@ -83,16 +83,26 @@ public class ClaimsActivity extends Activity {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 		if(item.getTitle() == "Expenses") {
 			Intent intent = new Intent(ClaimsActivity.this, ExpenseActivity.class);
+			intent.putExtra("claimPosition", info.position);
 			startActivity(intent);
 			
 		//Use of bundle borrowed and modified from http://stackoverflow.com/questions/14333449/passing-data-through-intent-using-serializable
 		//Last accessed Jan 31, 2015 at 2:33 PM
 		} else if(item.getTitle() == "Edit") {
 			Intent intent = new Intent(ClaimsActivity.this, EditDestinationActivity.class);
-			Claims inputClaim = claims.get(info.position);
+			
+			//If can implement setText in EditDestinationActivity, this would be used instead.
+			/*
+			ArrayList<Claims> inputClaim = claims;
 			Bundle bundle = new Bundle();
 			bundle.putSerializable("Claim", inputClaim);
 			intent.putExtra("Claim", bundle);
+			intent.putExtra("position", info.position);
+			*/
+			intent.putExtra("position", info.position);
+			
+			//ItemWrapper itemWrapper = new ItemWrapper(claims);
+			//intent.putExtra("claim", itemWrapper);
 			startActivity(intent);
 			
 		} else if(item.getTitle() == "Delete") {
