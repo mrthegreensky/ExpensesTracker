@@ -76,7 +76,7 @@ public class NewExpenseActivity extends Activity {
 					newClaim = claims.get(claimPosition);
 					String stringAmount = amountText.getText().toString();
 					Double amount = Double.parseDouble(stringAmount);
-					newClaim.addExpense(new Expense(amount, currencySpinner.toString(), descriptionText.toString(), getDate(date)));
+					newClaim.addExpense(new Expense(amount, currencySpinner.getSelectedItem().toString(), descriptionText.getText().toString(), getDate(date)));
 					claims.remove(claimPosition);
 					claims.add(claimPosition, newClaim);
 					saveInFile(claims);

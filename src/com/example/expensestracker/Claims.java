@@ -10,7 +10,7 @@ public class Claims extends Destination implements Serializable{
 	//Auto-generated SerialVersionUID when implemented Serializable
 	private static final long serialVersionUID = 703850910971252373L;
 
-	protected List<Expense> list;
+	protected ArrayList<Expense> list;
 	
 	private String status; // where status = 0 not submitted and is the default status
 						// status = 1 is submitted but still being reviewed
@@ -35,7 +35,7 @@ public class Claims extends Destination implements Serializable{
 		list.set(list.indexOf(oldexpense), newexpense);
 	}
 	
-	public List<Expense> getExpenses() {
+	public ArrayList<Expense> getExpenses() {
 		return list;
 	}
 	
