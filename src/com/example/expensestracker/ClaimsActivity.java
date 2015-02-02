@@ -129,7 +129,6 @@ public class ClaimsActivity extends Activity {
 			emailIntent.putExtra(Intent.EXTRA_TEXT, contents);
 			try {
 				startActivity(Intent.createChooser(emailIntent, "Preparing to send your email"));
-				finish();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
