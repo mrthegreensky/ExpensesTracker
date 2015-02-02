@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+//Adapted from http://theopentutorials.com/tutorials/android/listview/android-custom-listview-with-image-and-text-using-arrayadapter/
+//and https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
+//Last accessed Feb 1, 2015 at 8:16 PM
 public class ExpenseArrayAdapter extends ArrayAdapter<Expense> {
 
 	ArrayList<Expense> expenses;
