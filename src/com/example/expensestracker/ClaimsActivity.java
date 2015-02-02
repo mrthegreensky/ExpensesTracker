@@ -106,8 +106,8 @@ public class ClaimsActivity extends Activity {
 		}
 		
 		
-		if(status == "Email accepted claim") {
-			Toast.makeText(this, "emailing!", Toast.LENGTH_SHORT);
+		if(item.getTitle().equals("Email accepted claim") && status.equals("Accepted")) {
+
 			ArrayList<Expense> emailClaim = claims.get(info.position).getExpenses();
 			
 			String contents = "Your claims for " + claims.get(info.position).getYourDestination() + " are: \n";
@@ -127,6 +127,7 @@ public class ClaimsActivity extends Activity {
 			emailIntent.putExtra(Intent.EXTRA_TEXT, contents);
 			try {
 				startActivity(Intent.createChooser(emailIntent, "Preparing to send your email"));
+				finish();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
