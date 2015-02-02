@@ -59,6 +59,7 @@ public class ClaimsActivity extends Activity {
 	
 	//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
 	//Last accessed Feb 1, 8:08 PM
+	//Menus 4 and 5 ONLY show when the claim has been submitted
 	public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
 		
 		super.onCreateContextMenu(contextMenu, view, menuInfo);	
@@ -71,7 +72,7 @@ public class ClaimsActivity extends Activity {
 		contextMenu.add(0, view.getId(), 1,"Edit");
 		contextMenu.add(0, view.getId(), 2, "Delete");
 		contextMenu.add(0, view.getId(), 3, "Submit");
-		if((status.equals("Pending Review") || status.equals("Accepted"))) {
+		if((status.equals("Pending Review"))) {
 			contextMenu.add(0, view.getId(), 4, "Set claim as rejected");
 			contextMenu.add(0, view.getId(), 5, "Set claim as accepted");
 		}
