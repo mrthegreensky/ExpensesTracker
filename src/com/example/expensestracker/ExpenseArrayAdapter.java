@@ -43,7 +43,7 @@ public class ExpenseArrayAdapter extends ArrayAdapter<Expense> {
 		String cost = expenses.get(position).getCost().toString();
 		String currency = expenses.get(position).getCurrency();
 		
-
+		//Displaying the cost of the expense with the respective currency of the cost
 		desc.setText("Description: " + description);
 		if(currency.equals("CAD")) {
 			expense.setText("CAD: " + cost);
@@ -55,11 +55,8 @@ public class ExpenseArrayAdapter extends ArrayAdapter<Expense> {
 			expense.setText("GBP: " + cost);
 		}
 		
-		//status.setText("Status: " + stat);
-		
 		return view;
 		
 	}
-	
 	
 }
