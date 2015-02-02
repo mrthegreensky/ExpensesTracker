@@ -63,12 +63,18 @@ public class ClaimsActivity extends Activity {
 		
 		super.onCreateContextMenu(contextMenu, view, menuInfo);	
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo)menuInfo;
+		String status = claims.get(info.position).getStatus();
+		
 		
 		contextMenu.setHeaderTitle(claims.get(info.position).getYourDestination());
 		contextMenu.add(0,view.getId(), 0, "Expenses");
 		contextMenu.add(0, view.getId(), 1,"Edit");
 		contextMenu.add(0, view.getId(), 2, "Delete");
 		contextMenu.add(0, view.getId(), 3, "Submit");
+		if((status.equals("Pending Review") || status.equals("Accepted"))) {
+			contextMenu.add(0, view.getId(), 4, "Set claim as rejected");
+			contextMenu.add(0, view.getId(), 5, "Set claim as accepted");
+		}
 		
 	}
 	
@@ -83,7 +89,15 @@ public class ClaimsActivity extends Activity {
 			intent.putExtra("status", status);
 			startActivity(intent);
 			
-		} 
+		} else if(!(status == "Accepted")) {
+			if(item.getTitle() == "Set claim as rejected") {
+				Toast.makeText(this, "Rejecting this claim", Toast.LENGTH_SHORT).show();
+				claims.get(info.position).setReject();
+			} else if(item.getTitle() == "Set claim as accepted") {
+				Toast.makeText(this, "Accepting this claim", Toast.LENGTH_SHORT).show();
+				claims.get(info.position).setAccept();
+			}
+		}
 		
 		if(!(status.equals("Pending Review") || status.equals("Accepted"))) {
 			if(item.getTitle() == "Edit") {
@@ -106,7 +120,7 @@ public class ClaimsActivity extends Activity {
 			
 			}
 			//Do not want to show this message if Expenses is selected
-		} else if(!(item.getTitle() == "Expenses")){
+		} else if(!(item.getTitle() == "Expenses" || item.getTitle() == "Set claim as rejected" || item.getTitle() == "Set claim as accepted")){
 			Toast.makeText(this, "Cannot edit, delete or submit claims at this moment", Toast.LENGTH_SHORT).show();
 		}
 		
