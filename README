@@ -16,6 +16,50 @@ However, if was implemented, would use a spinner to kept he categories. The user
 
 
 
+
+
+
+Making TextView clickable
+http://stackoverflow.com/questions/5537043/making-a-textview-clickable-in-android
+Last accessed Jan 28, 8:27 AM
+
+Not using hardcoded strings
+http://hintslibrary.blogspot.ca/2012/05/warning-hardcoded-string-str-should-use.html
+Last accessed Jan 28, 9:31 AM
+
+The following links were used for the date picker: 
+http://developer.android.com/guide/topics/ui/controls/pickers.html
+http://www.mkyong.com/android/android-date-picker-example/
+Last accessed on January 29, 5:51 PM
+
+Making layout scrollable
+http://stackoverflow.com/questions/3819189/how-to-make-my-layout-able-to-scroll-down
+Last accessed Jan 29, 7:15 PM
+
+Turn off calendar view
+http://stackoverflow.com/questions/9462448/how-to-turn-off-calendarview-in-a-datepicker
+Last accessed Jan 29, 7:05 PM
+
+Positioning in Relative Layout
+http://developer.android.com/guide/topics/ui/layout/relative.html
+Last accessed Jan 29, 7:58 PM
+
+Creating ContextMenu
+http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
+Last accessed Jan 31, 11:38 AM
+
+Custom ArrayAdapter
+http://theopentutorials.com/tutorials/android/listview/android-custom-listview-with-image-and-text-using-arrayadapter/
+Last accessed Jan 31, 12:00PM
+
+Bundle 
+http://stackoverflow.com/questions/5424135/passing-integer-between-activities-and-intents-in-android-is-always-resulting-in
+Last accessed Feb 1, 10:46 AM
+
+
+
+
+
 LICENSE
 =================================================================
 Copyright 2015 Andrew Zhong
