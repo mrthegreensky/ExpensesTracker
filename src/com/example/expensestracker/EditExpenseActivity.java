@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 public class EditExpenseActivity extends NewExpenseActivity {
-	
 
 	private ArrayList<Claims> claims;
 	
@@ -24,10 +23,7 @@ public class EditExpenseActivity extends NewExpenseActivity {
 	private EditText descriptionText;
 	private EditText amountText;
 	private Spinner currencySpinner;
-	
 	private DatePicker date;
-
-	
 	private Button okButton;
 
 	@Override
@@ -40,7 +36,6 @@ public class EditExpenseActivity extends NewExpenseActivity {
 		date = (DatePicker) findViewById(R.id.datePickerExpense);
 		currencySpinner = (Spinner) findViewById(R.id.CurrencySpinner);
 		okButton = (Button) findViewById(R.id.button1);
-		
 
 		Bundle extras = this.getIntent().getExtras();
 		claimPosition = extras.getInt("claimPosition");
@@ -88,7 +83,7 @@ public class EditExpenseActivity extends NewExpenseActivity {
 		
 	}
 	
-	//Sets the date on the datepicker
+	//Sets the date on the DatePicker
 	public void setCurrentDateToview() {
 		
 		date = (DatePicker)findViewById(R.id.datePickerExpense);

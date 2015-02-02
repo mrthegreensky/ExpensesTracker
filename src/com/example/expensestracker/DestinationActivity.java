@@ -24,7 +24,6 @@ import android.widget.EditText;
 
 public class DestinationActivity extends Activity {
 	
-	
 	//These attributes were borrowed and modified from lab 3 code
 	private static final String FILENAME = "Claims.sav";
 	private ArrayList<Claims> claims;
@@ -38,7 +37,6 @@ public class DestinationActivity extends Activity {
 	
 	private Button okButton;
 	private EditText userDestination;
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -79,23 +77,6 @@ public class DestinationActivity extends Activity {
 		calendar.set(year, month, day);
 		
 		return calendar.getTime();
-		
-	}
-	
-	
-	public void setCurrentDateToview() {
-		
-		fromDate = (DatePicker)findViewById(R.id.FromDatePicker);
-		toDate = (DatePicker)findViewById(R.id.ToDatePicker);
-		
-		final Calendar calendar = Calendar.getInstance();
-		year = calendar.get(Calendar.YEAR);
-		month = calendar.get(Calendar.MONTH) + 1;
-		day = calendar.get(Calendar.DAY_OF_MONTH);		
-		
-		fromDate.init(year, month, day, null);
-		toDate.init(year, month, day, null);
-		
 		
 	}
 	

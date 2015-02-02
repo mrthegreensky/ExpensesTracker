@@ -40,13 +40,12 @@ public class ClaimsActivity extends Activity {
 		
 		ClaimsList = (ListView) findViewById(R.id.ClaimsList); //this line of code was borrowed and modified from lab 3 code 
 		
-		//Borrowed and modified from http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
-		//Last accessed Jan 31, 2015 at 11:38 AM
+		//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
+		//Last accessed Feb 1, 8:08 PM
 		registerForContextMenu(ClaimsList);
-		
-		
 	}
 
+	
 	//The following method was borrowed and modified from lab 3 code 
 	protected void onStart() {
 		
@@ -58,8 +57,8 @@ public class ClaimsActivity extends Activity {
 	}
 	
 	
-	//Following two methods borrowed and modified from http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
-	//Last accessed Jan 31 2015 at 11:38 AM
+	//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
+	//Last accessed Feb 1, 8:08 PM
 	public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
 		
 		super.onCreateContextMenu(contextMenu, view, menuInfo);	
@@ -85,9 +84,7 @@ public class ClaimsActivity extends Activity {
 		//Last accessed Jan 31, 2015 at 2:33 PM
 		} else if(item.getTitle() == "Edit") {
 			Intent intent = new Intent(ClaimsActivity.this, EditDestinationActivity.class);
-			
 			intent.putExtra("position", info.position);
-			
 			startActivity(intent);
 			
 		} else if(item.getTitle() == "Delete") {
@@ -115,8 +112,7 @@ public class ClaimsActivity extends Activity {
 		getMenuInflater().inflate(R.menu.claims, menu);
 		return true;
 	}
-
-
+	
 	
 	public void CreateANewClaim(MenuItem menu) {
 		Toast.makeText(this, "Create A New Claim", Toast.LENGTH_SHORT).show();
@@ -151,6 +147,7 @@ public class ClaimsActivity extends Activity {
 		return claims;
 	}
 	
+	
 	private void saveInFile(ArrayList<Claims> claims) {
 		Gson gson = new Gson();
 		try {
@@ -167,5 +164,4 @@ public class ClaimsActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
-	
 }

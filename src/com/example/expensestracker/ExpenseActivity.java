@@ -34,6 +34,7 @@ public class ExpenseActivity extends Activity {
 	private int claimPosition;
 	private ListView ExpenseList;
 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,14 +43,15 @@ public class ExpenseActivity extends Activity {
 		
 		ExpenseList = (ListView) findViewById(R.id.ExpenseList); //this line of code was borrowed and modified from lab 3 code 
 		
-		//Borrowed and modified from http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
-		//Last accessed Jan 31, 2015 at 11:38 AM
+		//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
+		//Last accessed Feb 1, 8:08 PM
 		registerForContextMenu(ExpenseList);
 		
 
 		Bundle extras = this.getIntent().getExtras();
 		claimPosition = extras.getInt("claimPosition");
 	}
+	
 	
 	protected void onStart() {
 		
@@ -61,8 +63,6 @@ public class ExpenseActivity extends Activity {
 	}
 	
 	
-	
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -70,6 +70,7 @@ public class ExpenseActivity extends Activity {
 		return true;
 	}
 
+	
 	public void AddExpense(MenuItem menu) {
 		Toast.makeText(this, "Add Expense", Toast.LENGTH_SHORT).show();
 		Intent intent = new Intent(ExpenseActivity.this, NewExpenseActivity.class);
@@ -79,8 +80,8 @@ public class ExpenseActivity extends Activity {
 	
 	
 
-	//Following two methods borrowed and modified from http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
-	//Last accessed Jan 31 2015 at 11:38 AM
+	//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
+	//Last accessed Feb 1, 8:08 PM
 	public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
 		
 		super.onCreateContextMenu(contextMenu, view, menuInfo);	
@@ -119,9 +120,6 @@ public class ExpenseActivity extends Activity {
 	}
 	
 	
-	
-	
-	
 	//loadFromFile and saveInFile methods borrowed and modified from Lab3 code. 
 	private ArrayList<Claims> loadFromFile() {
 		Gson gson = new Gson();
@@ -147,6 +145,7 @@ public class ExpenseActivity extends Activity {
 		
 		return claims;
 	}
+	
 	
 	private void saveInFile(ArrayList<Claims> claims) {
 		Gson gson = new Gson();

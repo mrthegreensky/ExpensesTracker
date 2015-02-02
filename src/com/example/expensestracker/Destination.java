@@ -8,11 +8,13 @@ public class Destination {
 	private Date StartDate;
 	private Date EndDate;
 	
+	
 	public Destination(String YourDestination, Date StartDate, Date EndDate) {
 		this.YourDestination = YourDestination;
 		this.StartDate = StartDate;
 		this.EndDate = EndDate;
 	}
+	
 	
 	public String getYourDestination() {
 		return YourDestination;
@@ -24,12 +26,6 @@ public class Destination {
 	
 	public Date getEndDate() {
 		return EndDate;
-	}
-	
-	public void resetDestination(String YourDestination, Date StartDate, Date EndDate) {
-		this.YourDestination = YourDestination;
-		this.StartDate = StartDate;
-		this.EndDate = EndDate;
 	}
 
 }

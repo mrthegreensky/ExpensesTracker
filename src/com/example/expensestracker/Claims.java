@@ -13,11 +13,13 @@ public class Claims extends Destination implements Serializable{
 	
 	private String status; 
 	
+	
 	public Claims(String YourDestination, Date StartDate, Date EndDate) {
 		super(YourDestination, StartDate, EndDate);
 		list = new ArrayList<Expense>();
 		status = "Not submitted";
 	}
+	
 	
 	public void addExpense(Expense expense) {
 		list.add(expense);
@@ -35,17 +37,9 @@ public class Claims extends Destination implements Serializable{
 		return list;
 	}
 	
-	public Expense getExpense() {
-		//Returns last claim
-		if(list.size()>0) {
-			return list.remove(list.size());
-		}
-		return null;
-	}
 	public Expense getExpenseat(int position) {
 		return list.get(position);
 	}
-	
 	
 	public String getStatus() {
 		return this.status;

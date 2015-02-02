@@ -9,12 +9,11 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener{
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
 		
 		TextView Claims =(TextView)findViewById(R.id.ClaimsExpenses);
 		if(Claims!= null) {

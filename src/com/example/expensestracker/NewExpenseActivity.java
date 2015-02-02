@@ -25,8 +25,6 @@ import android.widget.Spinner;
 
 public class NewExpenseActivity extends Activity {
 	
-	
-	
 	private static final String FILENAME = "Claims.sav";
 	private ArrayList<Claims> claims;
 	
@@ -127,7 +125,7 @@ public class NewExpenseActivity extends Activity {
 		
 	}
 	
-	
+	//Delete the file before saving to it so it does not append to previous claim
 	protected void saveInFile(ArrayList<Claims> claims) {
 		Gson gson = new Gson();
 		try {

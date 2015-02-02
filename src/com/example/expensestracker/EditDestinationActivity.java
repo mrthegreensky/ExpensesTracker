@@ -16,20 +16,18 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-//Doesn't load the old info yet. But will replace
+
 public class EditDestinationActivity extends DestinationActivity {
 	private static final String FILENAME = "Claims.sav";
 	private ArrayList<Claims> claims;
+	private int position;
+	private Claims oldclaim;
 	
 	private DatePicker toDate;
 	private DatePicker fromDate;
-	
-
 	private Button okButton;
 	private EditText userDestination;
 
-	private int position;
-	private Claims oldclaim;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +72,7 @@ public class EditDestinationActivity extends DestinationActivity {
 		
 	}
 	
+	//Shows DatePicker from claim that was previously created 
 	public void setCurrentDateToview() {
 		
 		fromDate = (DatePicker)findViewById(R.id.FromDatePicker);
@@ -81,8 +80,10 @@ public class EditDestinationActivity extends DestinationActivity {
 		
 		Date startDate = oldclaim.getStartDate();
 		Date endDate = oldclaim.getEndDate();
+		
 		Calendar startCalendar = Calendar.getInstance();
 		Calendar endCalendar = Calendar.getInstance();
+		
 		startCalendar.setTime(startDate);
 		endCalendar.setTime(endDate);
 		
@@ -98,9 +99,9 @@ public class EditDestinationActivity extends DestinationActivity {
 		toDate.init(syear, smonth, sday, null);
 		fromDate.init(eyear, emonth, eday, null);
 		
-		
 	}
 	
+	//Deletes the file and resaves the claim. Does not append to the previous claim in the file
 	protected void saveInFile(ArrayList<Claims> claims) {
 		Gson gson = new Gson();
 		try {
