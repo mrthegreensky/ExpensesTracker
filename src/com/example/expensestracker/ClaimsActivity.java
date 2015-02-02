@@ -61,7 +61,8 @@ public class ClaimsActivity extends Activity {
 	//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
 	//Last accessed Feb 1, 8:08 PM
 	//Menus 4 and 5 ONLY show when the claim has been submitted
-	//Able to email accepted claims ONLY. 
+	//Should use r.string's to define the strings
+	//would be implemented in future versions
 	public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
 		
 		super.onCreateContextMenu(contextMenu, view, menuInfo);	
@@ -74,12 +75,10 @@ public class ClaimsActivity extends Activity {
 		contextMenu.add(0, view.getId(), 1,"Edit");
 		contextMenu.add(0, view.getId(), 2, "Delete");
 		contextMenu.add(0, view.getId(), 3, "Submit");
+		contextMenu.add(0, view.getId(), 4, "Email claim");
 		if((status.equals("Pending Review"))) {
-			contextMenu.add(0, view.getId(), 4, "Set claim as rejected");
-			contextMenu.add(0, view.getId(), 5, "Set claim as accepted");
-		}
-		if(status.equals("Accepted")) {
-			contextMenu.add(0, view.getId(), 4, "Email accepted claim");
+			contextMenu.add(0, view.getId(), 5, "Set claim as rejected");
+			contextMenu.add(0, view.getId(), 6, "Set claim as accepted");
 		}
 		
 	}
@@ -108,7 +107,7 @@ public class ClaimsActivity extends Activity {
 		//This fragment is borrowed and modified from https://github.com/aktse/akt-notes/blob/master/akt-notes/src/cs/ualberta/akt/akt_notes/EmailActivity.java
 		//With the permission of author
 		//Last accessed February 2, 2015 at 00:53
-		if(item.getTitle().equals("Email accepted claim") && status.equals("Accepted")) {
+		if(item.getTitle().equals("Email claim") ) {
 
 			ArrayList<Expense> emailClaim = claims.get(info.position).getExpenses();
 			
@@ -157,7 +156,7 @@ public class ClaimsActivity extends Activity {
 			
 			}
 			//Do not want to show this message if Expenses is selected
-		} else if(!(item.getTitle() == "Expenses" || item.getTitle() == "Set claim as rejected" || item.getTitle() == "Set claim as accepted" || item.getTitle() == "Email accepted claim")){
+		} else if(!(item.getTitle() == "Expenses" || item.getTitle() == "Set claim as rejected" || item.getTitle() == "Set claim as accepted" || item.getTitle() == "Email claim")){
 			Toast.makeText(this, "Cannot edit, delete or submit claims at this moment", Toast.LENGTH_SHORT).show();
 		}
 		

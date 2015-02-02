@@ -8,6 +8,7 @@ import java.util.Date;
 public class Expense implements Serializable{
 	
 	//Auto-generated serialVersionUID
+	//Need to implement category for future versions
 	private static final long serialVersionUID = 6479358641782024794L;
 	private String currency;
 	private double cost;

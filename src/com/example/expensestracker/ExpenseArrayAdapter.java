@@ -18,6 +18,7 @@ public class ExpenseArrayAdapter extends ArrayAdapter<Expense> {
 
 	ArrayList<Expense> expenses;
 	
+	
 	public ExpenseArrayAdapter(Context context, ArrayList<Expense> expenses) {
 		super(context, R.layout.expense_activity, expenses);
 		

@@ -25,21 +25,17 @@ public class CustomArrayAdapter extends ArrayAdapter<Claims> {
 	private Double EUR = 0.0;
 	private Double GBP = 0.0;
 	
+	
 	public CustomArrayAdapter(Context context, ArrayList<Claims> claims) {
 		super(context, R.layout.claims_list, claims);
 		
 		this.claims = claims;
 	}
 	
+	
 	@Override
 	public Claims getItem(int position) {
 		return claims.get(position);
-	}
-	
-	public void Submit(int position, Claims newClaim) {
-		newClaim.setSubmit();
-		claims.remove(position);
-		claims.add(position, newClaim);
 	}
 	
 	
@@ -99,6 +95,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Claims> {
 		return view;
 	}
 	
+	
 	//Resets the values of the Doubles so that they don't carry onto the next ListView
 	//Corrected problem of the double values taking the previous claims expenses and adding their own to it
 	private void resetDoubles() {
@@ -106,6 +103,14 @@ public class CustomArrayAdapter extends ArrayAdapter<Claims> {
 		USD = 0.0;
 		EUR = 0.0;
 		GBP = 0.0;
+	}
+	
+	
+	//Sets status of claim to be submit
+	public void Submit(int position, Claims newClaim) {
+		newClaim.setSubmit();
+		claims.remove(position);
+		claims.add(position, newClaim);
 	}
 	
 }

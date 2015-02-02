@@ -65,9 +65,8 @@ public class DestinationActivity extends Activity {
 			});
 		
 		}
-		
-		
 	}
+	
 	
 	public Date getDate(DatePicker date) {
 		year = date.getYear();

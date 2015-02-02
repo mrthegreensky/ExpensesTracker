@@ -11,10 +11,14 @@ When accepted, no further edits are allowed at which then, the user may choose t
 Once a claim is accepted, it cannot be deleted or edited.
 The delete functionality of a claim or expense is restricted to only when the claim is not submitted, or when rejected. 
 
+Category functionality was not implemented, did not think it was necessary as it would be explained by the description of the claim.
+However, if was implemented, would use a spinner to kept he categories. The user would have to choose an item on the spinner.
+
+
 
 LICENSE
 =================================================================
-Copyright 2015 Andrew zhong
+Copyright 2015 Andrew Zhong
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

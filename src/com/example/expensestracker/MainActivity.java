@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//Makes everything pretty 
 public class MainActivity extends Activity implements OnClickListener{
 	
 	@Override

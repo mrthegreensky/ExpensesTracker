@@ -93,6 +93,19 @@ public class NewExpenseActivity extends Activity {
 		return true;
 	}
 	
+	
+	public Date getDate(DatePicker date) {
+		year = date.getYear();
+		month = date.getMonth();
+		day = date.getDayOfMonth();
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(year, month, day);
+		
+		return calendar.getTime();
+		
+	}
+	
+	
 	//loadFromFile and saveInFile methods borrowed and modified from Lab3 code. 
 	protected ArrayList<Claims> loadFromFile() {
 		Gson gson = new Gson();
@@ -119,16 +132,6 @@ public class NewExpenseActivity extends Activity {
 		return claims;
 	}
 	
-	public Date getDate(DatePicker date) {
-		year = date.getYear();
-		month = date.getMonth();
-		day = date.getDayOfMonth();
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(year, month, day);
-		
-		return calendar.getTime();
-		
-	}
 	
 	//Delete the file before saving to it so it does not append to previous claim
 	protected void saveInFile(ArrayList<Claims> claims) {
