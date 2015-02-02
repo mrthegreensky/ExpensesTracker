@@ -12,10 +12,7 @@ public class Claims extends Destination implements Serializable{
 
 	protected ArrayList<Expense> list;
 	
-	private String status; // where status = 0 not submitted and is the default status
-						// status = 1 is submitted but still being reviewed
-						// status = 2 is rejected/returned and needs improvements to be done
-						// status = 3 is accepted no further edits allowed
+	private String status; 
 	
 	public Claims(String YourDestination, Date StartDate, Date EndDate) {
 		super(YourDestination, StartDate, EndDate);
@@ -45,6 +42,9 @@ public class Claims extends Destination implements Serializable{
 			return list.remove(list.size());
 		}
 		return null;
+	}
+	public Expense getExpenseat(int position) {
+		return list.get(position);
 	}
 	
 	

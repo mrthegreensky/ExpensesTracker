@@ -30,9 +30,7 @@ public class NewExpenseActivity extends Activity {
 	
 	
 	private static final String FILENAME = "Claims.sav";
-	private ListView ClaimsList;
 	private ArrayList<Claims> claims;
-	private CustomArrayAdapter adapter;
 	
 	private Claims newClaim;
 	private int claimPosition;
@@ -66,6 +64,7 @@ public class NewExpenseActivity extends Activity {
 		Bundle extras = this.getIntent().getExtras();
 		claimPosition = extras.getInt("claimPosition");
 		
+		
 		//Have to check if button is pressed  and if there is input in the Destination EditText
 		//Uses anonymous function, borrowed and modified from LonelyTwitterActivity
 		if(descriptionText.toString().trim().length() > 0) {
@@ -95,7 +94,7 @@ public class NewExpenseActivity extends Activity {
 	}
 	
 	//loadFromFile and saveInFile methods borrowed and modified from Lab3 code. 
-	private ArrayList<Claims> loadFromFile() {
+	protected ArrayList<Claims> loadFromFile() {
 		Gson gson = new Gson();
 		ArrayList<Claims> claims = null;
 		try {

@@ -54,19 +54,6 @@ public class EditDestinationActivity extends DestinationActivity {
 		//Last accessed Feb 1, 2015 at 10:46 AM
 		Bundle extras = this.getIntent().getExtras();
 		
-		//final Bundle bundle = intent.getExtras();
-		//claims = (ArrayList<Claims>)bundle.getSerializable("Claim");
-
-		
-		//userDestination.setText(oldClaim.getYourDestination());
-		//userDestination.setText(oldClaim.getYourDestination(), EditText.BufferType.EDITABLE);
-		//setCurrentDateToview();
-		
-		//ItemWrapper itemWrapper = (ItemWrapper)intent.getSerializableExtra("claim");
-		
-		//claims = itemWrapper.getArrayList();
-		//position = itemWrapper.getPosition();
-		
 		position = extras.getInt("position");
 
 		claims = loadFromFile();
@@ -143,24 +130,4 @@ public class EditDestinationActivity extends DestinationActivity {
 		}
 	}
 	
-	/*
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.edit_destination, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-	*/
 }

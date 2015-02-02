@@ -10,31 +10,23 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
 
 public class DestinationActivity extends Activity {
 	
 	
 	//These attributes were borrowed and modified from lab 3 code
 	private static final String FILENAME = "Claims.sav";
-	private ListView ClaimsList;
 	private ArrayList<Claims> claims;
 	
 	private DatePicker toDate;
@@ -53,7 +45,6 @@ public class DestinationActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.destination);
 		
-		ClaimsList = (ListView) findViewById(R.id.ClaimsList); //Borrowed and modified from lab 3 code	
 		okButton = (Button) findViewById(R.id.SubmitDestination);
 		userDestination = (EditText) findViewById(R.id.DestinationText);
 		claims = new ArrayList<Claims>();

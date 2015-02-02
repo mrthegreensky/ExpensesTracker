@@ -98,6 +98,7 @@ public class ExpenseActivity extends Activity {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 		if(item.getTitle() == "Edit") {
 			Intent intent = new Intent(ExpenseActivity.this, EditExpenseActivity.class);
+			intent.putExtra("claimPosition", claimPosition);
 			intent.putExtra("expensePosition", info.position);
 			startActivity(intent);
 			
