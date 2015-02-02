@@ -88,7 +88,7 @@ public class ClaimsActivity extends Activity {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 		String status = claims.get(info.position).getStatus();
 		if(item.getTitle() == "Expenses") {
-			Toast.makeText(this, "Your expenses", Toast.LENGTH_SHORT);
+			Toast.makeText(this, "Your expenses", Toast.LENGTH_SHORT).show();
 			Intent intent = new Intent(ClaimsActivity.this, ExpenseActivity.class);
 			intent.putExtra("claimPosition", info.position);
 			intent.putExtra("status", status);
