@@ -10,31 +10,21 @@ import java.util.Date;
 
 import com.google.gson.Gson;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
 
 //Doesn't load the old info yet. But will replace
 public class EditDestinationActivity extends DestinationActivity {
 	private static final String FILENAME = "Claims.sav";
-	private ListView ClaimsList;
 	private ArrayList<Claims> claims;
 	
 	private DatePicker toDate;
 	private DatePicker fromDate;
 	
-	private Integer year;
-	private Integer month;
-	private Integer day;
-	
+
 	private Button okButton;
 	private EditText userDestination;
 
@@ -46,7 +36,6 @@ public class EditDestinationActivity extends DestinationActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.destination);
 		
-		ClaimsList = (ListView) findViewById(R.id.ClaimsList); //Borrowed and modified from lab 3 code	
 		okButton = (Button) findViewById(R.id.SubmitDestination);
 		userDestination = (EditText) findViewById(R.id.DestinationText);
 		

@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,7 +21,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 
 public class NewExpenseActivity extends Activity {
@@ -40,7 +38,6 @@ public class NewExpenseActivity extends Activity {
 	private Spinner currencySpinner;
 	
 	private DatePicker date;
-	private Date theDate;
 	
 	private Integer year;
 	private Integer month;
