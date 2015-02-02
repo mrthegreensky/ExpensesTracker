@@ -36,24 +36,26 @@ public class ExpenseArrayAdapter extends ArrayAdapter<Expense> {
 			view = inflater.inflate(R.layout.expenses_list, null);
 		}
 		
-		TextView item = (TextView) view.findViewById(R.id.ExpenseDescription);
-		/*
-		Spinner expenseCAD = (Spinner) view.findViewById(R.id.ExpenseCAD);
-		Spinner expenseUSD = (Spinner) view.findViewById(R.id.ExpenseUSD);
-		Spinner expenseEUR = (Spinner) view.findViewById(R.id.ExpenseEUR);
-		Spinner expenseGBP = (Spinner) view.findViewById(R.id.ExpenseGBP);
-		*/
+		TextView desc = (TextView) view.findViewById(R.id.ExpenseDescription);
+		
+		TextView expense = (TextView) view.findViewById(R.id.Expense);
+		
 		String description = expenses.get(position).getDescription();
-		/*
+		String cost = expenses.get(position).getCost().toString();
 		String currency = expenses.get(position).getCurrency();
 		
-		if(currency == "CAD") {
-			
+
+		desc.setText("Description: " + description);
+		if(currency.equals("CAD")) {
+			expense.setText("CAD: " + cost);
+		} else if (currency.equals("USD")) {
+			expense.setText("USD: " + cost);
+		} else if (currency.equals("EUR")) {
+			expense.setText("EUR: " + cost);
+		} else if (currency.equals("GBP")) {
+			expense.setText("GBP: " + cost);
 		}
-		*/
 		
-		
-		item.setText("Description: " + description);
 		//status.setText("Status: " + stat);
 		
 		return view;

@@ -63,8 +63,8 @@ public class ClaimsActivity extends Activity {
 	}
 	
 	
-	//Following two methods orrowed and modified from http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
-	//Last accesed Jan 31 2015 at 11:38 AM
+	//Following two methods borrowed and modified from http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
+	//Last accessed Jan 31 2015 at 11:38 AM
 	public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
 		
 		super.onCreateContextMenu(contextMenu, view, menuInfo);	
@@ -91,18 +91,8 @@ public class ClaimsActivity extends Activity {
 		} else if(item.getTitle() == "Edit") {
 			Intent intent = new Intent(ClaimsActivity.this, EditDestinationActivity.class);
 			
-			//If can implement setText in EditDestinationActivity, this would be used instead.
-			/*
-			ArrayList<Claims> inputClaim = claims;
-			Bundle bundle = new Bundle();
-			bundle.putSerializable("Claim", inputClaim);
-			intent.putExtra("Claim", bundle);
-			intent.putExtra("position", info.position);
-			*/
 			intent.putExtra("position", info.position);
 			
-			//ItemWrapper itemWrapper = new ItemWrapper(claims);
-			//intent.putExtra("claim", itemWrapper);
 			startActivity(intent);
 			
 		} else if(item.getTitle() == "Delete") {

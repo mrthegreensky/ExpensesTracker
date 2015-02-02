@@ -15,11 +15,15 @@ import com.google.gson.reflect.TypeToken;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class ExpenseActivity extends Activity {
 
@@ -75,6 +79,52 @@ public class ExpenseActivity extends Activity {
 	}
 	
 	
+
+	//Following two methods borrowed and modified from http://stackoverflow.com/questions/21283636/create-a-context-menu-when-click-long-in-a-custom-listview
+	//Last accessed Jan 31 2015 at 11:38 AM
+	public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
+		
+		super.onCreateContextMenu(contextMenu, view, menuInfo);	
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo)menuInfo;
+		
+		contextMenu.setHeaderTitle(claims.get(claimPosition).getExpenses().get(info.position).getDescription());
+		contextMenu.add(0, view.getId(), 0,"Edit");
+		contextMenu.add(0, view.getId(), 1, "Delete");
+		
+	}
+	
+	
+	public boolean onContextItemSelected(MenuItem item) {
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+		if(item.getTitle() == "Edit") {
+			Intent intent = new Intent(ExpenseActivity.this, EditExpenseActivity.class);
+			intent.putExtra("expensePosition", info.position);
+			startActivity(intent);
+			
+		//Use of bundle borrowed and modified from http://stackoverflow.com/questions/14333449/passing-data-through-intent-using-serializable
+		//Last accessed Jan 31, 2015 at 2:33 PM
+		} else if(item.getTitle() == "Delete") {
+			Intent intent = new Intent(ExpenseActivity.this, EditDestinationActivity.class);
+			
+			intent.putExtra("expenseposition", info.position);
+			
+			startActivity(intent);
+			
+		} else {
+			return false;
+			
+		}
+		
+		saveInFile(claims);
+		adapter.notifyDataSetChanged();
+		return true;
+		
+	}
+	
+	
+	
+	
+	
 	//loadFromFile and saveInFile methods borrowed and modified from Lab3 code. 
 	private ArrayList<Claims> loadFromFile() {
 		Gson gson = new Gson();
@@ -104,6 +154,7 @@ public class ExpenseActivity extends Activity {
 	private void saveInFile(ArrayList<Claims> claims) {
 		Gson gson = new Gson();
 		try {
+			//deleteFile(FILENAME);
 			FileOutputStream fos = openFileOutput(FILENAME, 0); // zero is the default thing that will clear it when it opens 
 			OutputStreamWriter osw = new OutputStreamWriter(fos);
 			gson.toJson(claims, osw);

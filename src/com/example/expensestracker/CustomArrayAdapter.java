@@ -43,13 +43,13 @@ public class CustomArrayAdapter extends ArrayAdapter<Claims> {
 			view = inflater.inflate(R.layout.claims_list, null);
 		}
 		
-		TextView item = (TextView) view.findViewById(R.id.ClaimName);
+		TextView name = (TextView) view.findViewById(R.id.ClaimName);
 		TextView status = (TextView) view.findViewById(R.id.Status);
 		
 		String dest = claims.get(position).getYourDestination();
 		String stat = claims.get(position).getStatus();
 		
-		item.setText("Destination: " + dest);
+		name.setText("Destination: " + dest);
 		status.setText("Status: " + stat);
 		
 		return view;
