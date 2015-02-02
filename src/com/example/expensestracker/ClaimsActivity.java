@@ -105,7 +105,9 @@ public class ClaimsActivity extends Activity {
 			}
 		}
 		
-		
+		//This fragment is borrowed and modified from https://github.com/aktse/akt-notes/blob/master/akt-notes/src/cs/ualberta/akt/akt_notes/EmailActivity.java
+		//With the permission of author
+		//Last accessed February 2, 2015 at 00:53
 		if(item.getTitle().equals("Email accepted claim") && status.equals("Accepted")) {
 
 			ArrayList<Expense> emailClaim = claims.get(info.position).getExpenses();
