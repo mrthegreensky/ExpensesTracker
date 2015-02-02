@@ -18,7 +18,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@id/ClaimName"
-    android:paddingStart="15sp"
+    android:paddingStart="10sp"
     android:paddingEnd="0sp"/>
 
 <TextView
@@ -26,7 +26,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@id/Status"
-    android:paddingStart="15sp"
+    android:paddingStart="10sp"
     android:paddingEnd="0sp"/>
 
 <TextView
@@ -35,7 +35,7 @@
     android:layout_height="wrap_content"
     android:layout_toEndOf="@id/ExpenseCAD"
     android:layout_below="@id/Status"
-    android:paddingStart="15sp"
+    android:paddingStart="10sp"
     android:paddingEnd="0sp"/>
 
 <TextView
@@ -44,7 +44,7 @@
     android:layout_height="wrap_content"
     android:layout_toEndOf="@id/ExpenseUSD"
     android:layout_below="@id/Status"
-    android:paddingStart="15sp"
+    android:paddingStart="10sp"
     android:paddingEnd="0sp"/>
 
 <TextView
@@ -53,7 +53,24 @@
     android:layout_height="wrap_content"
     android:layout_toEndOf="@id/ExpenseEUR"
     android:layout_below="@id/Status"
-    android:paddingStart="15sp"
+    android:paddingStart="10sp"
+    android:paddingEnd="0sp"/>
+
+<TextView
+    android:id="@+id/startDate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/ExpenseCAD"
+    android:paddingTop="10sp"
+    android:paddingStart="10sp"
+    android:paddingEnd="0sp"/>
+
+<TextView
+    android:id="@+id/endDate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/startDate"
+    android:paddingStart="10sp"
     android:paddingEnd="0sp"/>
 
 

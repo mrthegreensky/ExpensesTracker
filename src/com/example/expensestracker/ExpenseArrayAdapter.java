@@ -1,8 +1,10 @@
 package com.example.expensestracker;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,8 +41,9 @@ public class ExpenseArrayAdapter extends ArrayAdapter<Expense> {
 		}
 		
 		TextView desc = (TextView) view.findViewById(R.id.ExpenseDescription);
-		
 		TextView expense = (TextView) view.findViewById(R.id.Expense);
+		TextView expenseDate = (TextView) view.findViewById(R.id.ExpenseDate);
+		
 		
 		String description = expenses.get(position).getDescription();
 		String cost = expenses.get(position).getCost().toString();
@@ -57,6 +60,10 @@ public class ExpenseArrayAdapter extends ArrayAdapter<Expense> {
 		} else if (currency.equals("GBP")) {
 			expense.setText("GBP: " + cost);
 		}
+		
+		Date date = expenses.get(position).getDate();
+		String sDate = DateFormat.format("yyyy-MM-dd", date).toString();
+		expenseDate.setText("Date: " + sDate);
 		
 		return view;
 		

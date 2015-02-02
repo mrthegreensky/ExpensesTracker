@@ -11,7 +11,7 @@ public class Claims extends Destination implements Serializable{
 
 	protected ArrayList<Expense> list;
 	
-	private String status; 
+	private String status;
 	
 	
 	public Claims(String YourDestination, Date StartDate, Date EndDate) {
