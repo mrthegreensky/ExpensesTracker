@@ -81,7 +81,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Claims> {
 		String dest = claims.get(position).getYourDestination();
 		String stat = claims.get(position).getStatus();
 		
-		name.setText("Destination: " + dest);
+		name.setText("Claim: " + dest);
 		status.setText("Status: " + stat);
 		
 		return view;

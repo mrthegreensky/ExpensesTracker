@@ -30,7 +30,8 @@ public class ExpenseActivity extends Activity {
 	private static final String FILENAME = "Claims.sav";
 	private ArrayList<Claims> claims;
 	private ExpenseArrayAdapter adapter;
-	
+	private String status;
+	private boolean edit = false;
 	private int claimPosition;
 	private ListView ExpenseList;
 	
@@ -50,6 +51,10 @@ public class ExpenseActivity extends Activity {
 
 		Bundle extras = this.getIntent().getExtras();
 		claimPosition = extras.getInt("claimPosition");
+		status = extras.getString("status");
+		if(!(status.equals("Pending Review") || status.equals("Accepted"))) {
+			edit = true;
+		}
 	}
 	
 	
@@ -72,10 +77,14 @@ public class ExpenseActivity extends Activity {
 
 	
 	public void AddExpense(MenuItem menu) {
+		if(edit) {
 		Toast.makeText(this, "Add Expense", Toast.LENGTH_SHORT).show();
 		Intent intent = new Intent(ExpenseActivity.this, NewExpenseActivity.class);
 		intent.putExtra("claimPosition", claimPosition);
 		startActivity(intent);
+		} else {
+			Toast.makeText(this, "Cannot add new expense", Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	
@@ -96,27 +105,33 @@ public class ExpenseActivity extends Activity {
 	
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-		if(item.getTitle() == "Edit") {
-			Intent intent = new Intent(ExpenseActivity.this, EditExpenseActivity.class);
-			intent.putExtra("claimPosition", claimPosition);
-			intent.putExtra("expensePosition", info.position);
-			startActivity(intent);
+		if(edit) {
+			if(item.getTitle() == "Edit") {
+				Toast.makeText(this, "Edit expense", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(ExpenseActivity.this, EditExpenseActivity.class);
+				intent.putExtra("claimPosition", claimPosition);
+				intent.putExtra("expensePosition", info.position);
+				startActivity(intent);
+				
+			//Use of bundle borrowed and modified from http://stackoverflow.com/questions/14333449/passing-data-through-intent-using-serializable
+			//Last accessed Jan 31, 2015 at 2:33 PM
+			} else if(item.getTitle() == "Delete") {
+	
+				Toast.makeText(this, "Deleted expense", Toast.LENGTH_SHORT).show();
+				adapter.remove(claims.get(claimPosition).getExpenses().get(info.position));
+				
+			} else {
+				return false;
+				
+			}
 			
-		//Use of bundle borrowed and modified from http://stackoverflow.com/questions/14333449/passing-data-through-intent-using-serializable
-		//Last accessed Jan 31, 2015 at 2:33 PM
-		} else if(item.getTitle() == "Delete") {
-
-			adapter.remove(claims.get(claimPosition).getExpenses().get(info.position));
-			
+			saveInFile(claims);
+			adapter.notifyDataSetChanged();
+			return true;
 		} else {
+			Toast.makeText(this, "Cannot edit or delete claims at this moment", Toast.LENGTH_SHORT).show();
 			return false;
-			
 		}
-		
-		saveInFile(claims);
-		adapter.notifyDataSetChanged();
-		return true;
-		
 	}
 	
 	

@@ -69,7 +69,12 @@ public class NewExpenseActivity extends Activity {
 					claims = loadFromFile();
 					newClaim = claims.get(claimPosition);
 					String stringAmount = amountText.getText().toString();
-					Double amount = Double.parseDouble(stringAmount);
+					Double amount;
+					if(stringAmount.equals("")) {
+						amount = 0.0;
+					} else {
+						amount = Double.parseDouble(stringAmount);
+					}
 					newClaim.addExpense(new Expense(amount, currencySpinner.getSelectedItem().toString(), descriptionText.getText().toString(), getDate(date)));
 					claims.remove(claimPosition);
 					claims.add(claimPosition, newClaim);

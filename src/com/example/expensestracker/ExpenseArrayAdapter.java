@@ -47,7 +47,7 @@ public class ExpenseArrayAdapter extends ArrayAdapter<Expense> {
 		String currency = expenses.get(position).getCurrency();
 		
 		//Displaying the cost of the expense with the respective currency of the cost
-		desc.setText("Description: " + description);
+		desc.setText("Expense: " + description);
 		if(currency.equals("CAD")) {
 			expense.setText("CAD: " + cost);
 		} else if (currency.equals("USD")) {

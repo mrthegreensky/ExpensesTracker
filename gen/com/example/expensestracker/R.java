@@ -29,44 +29,42 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int AddExpenseItem=0x7f09001b;
-        public static final int AmountText=0x7f090014;
-        public static final int ClaimName=0x7f090003;
+        public static final int AddExpenseItem=0x7f09001a;
+        public static final int AmountText=0x7f090013;
+        public static final int ClaimName=0x7f090002;
         public static final int ClaimsExpenses=0x7f090000;
-        public static final int ClaimsList=0x7f090002;
-        public static final int ClaimsStatus=0x7f090001;
-        public static final int CreateANewClaimItem=0x7f090019;
-        public static final int CurrencySpinner=0x7f090016;
-        public static final int DateExpense=0x7f090018;
-        public static final int DescriptionText=0x7f090013;
-        public static final int DestinationText=0x7f09000a;
-        public static final int Expense=0x7f090012;
-        public static final int ExpenseCAD=0x7f090005;
-        public static final int ExpenseDescription=0x7f090011;
-        public static final int ExpenseEUR=0x7f090007;
-        public static final int ExpenseGBP=0x7f090008;
-        public static final int ExpenseList=0x7f090010;
-        public static final int ExpenseUSD=0x7f090006;
-        public static final int FromDatePicker=0x7f09000c;
-        public static final int FromText=0x7f09000b;
-        public static final int Status=0x7f090004;
-        public static final int SubmitDestination=0x7f09000f;
-        public static final int ToDatePicker=0x7f09000e;
-        public static final int ToText=0x7f09000d;
-        public static final int action_settings=0x7f09001a;
-        public static final int button1=0x7f090017;
-        public static final int datePickerExpense=0x7f090015;
-        public static final int textView3=0x7f090009;
+        public static final int ClaimsList=0x7f090001;
+        public static final int CreateANewClaimItem=0x7f090018;
+        public static final int CurrencySpinner=0x7f090015;
+        public static final int DateExpense=0x7f090017;
+        public static final int DescriptionText=0x7f090012;
+        public static final int DestinationText=0x7f090009;
+        public static final int Expense=0x7f090011;
+        public static final int ExpenseCAD=0x7f090004;
+        public static final int ExpenseDescription=0x7f090010;
+        public static final int ExpenseEUR=0x7f090006;
+        public static final int ExpenseGBP=0x7f090007;
+        public static final int ExpenseList=0x7f09000f;
+        public static final int ExpenseUSD=0x7f090005;
+        public static final int FromDatePicker=0x7f09000b;
+        public static final int FromText=0x7f09000a;
+        public static final int Status=0x7f090003;
+        public static final int SubmitDestination=0x7f09000e;
+        public static final int ToDatePicker=0x7f09000d;
+        public static final int ToText=0x7f09000c;
+        public static final int action_settings=0x7f090019;
+        public static final int button1=0x7f090016;
+        public static final int datePickerExpense=0x7f090014;
+        public static final int textView3=0x7f090008;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int claims_activity=0x7f030001;
         public static final int claims_list=0x7f030002;
-        public static final int claimstatus=0x7f030003;
-        public static final int destination=0x7f030004;
-        public static final int expense_activity=0x7f030005;
-        public static final int expenses_list=0x7f030006;
-        public static final int newexpense=0x7f030007;
+        public static final int destination=0x7f030003;
+        public static final int expense_activity=0x7f030004;
+        public static final int expenses_list=0x7f030005;
+        public static final int newexpense=0x7f030006;
     }
     public static final class menu {
         public static final int claim_status=0x7f080000;
@@ -79,21 +77,20 @@ public final class R {
         public static final int new_expense=0x7f080007;
     }
     public static final class string {
-        public static final int Accepted=0x7f05001a;
+        public static final int Accepted=0x7f050019;
         public static final int AddExpense=0x7f050008;
-        public static final int AmountSpent=0x7f050014;
+        public static final int AmountSpent=0x7f050013;
         public static final int Claims=0x7f050010;
-        public static final int ClaimsStatus=0x7f050011;
         public static final int CreateANewClaim=0x7f050009;
         public static final int DateFormat=0x7f05000b;
-        public static final int DateOfExpense=0x7f050015;
-        public static final int DescriptionClaim=0x7f050012;
+        public static final int DateOfExpense=0x7f050014;
+        public static final int DescriptionClaim=0x7f050011;
         public static final int DescriptionDestination=0x7f05000a;
         public static final int From=0x7f05000d;
-        public static final int NotSubmitted=0x7f050017;
-        public static final int OK=0x7f050013;
-        public static final int PendingReview=0x7f050018;
-        public static final int Rejected=0x7f050019;
+        public static final int NotSubmitted=0x7f050016;
+        public static final int OK=0x7f050012;
+        public static final int PendingReview=0x7f050017;
+        public static final int Rejected=0x7f050018;
         public static final int SubmitDestination=0x7f05000f;
         public static final int To=0x7f05000e;
         public static final int YourDestination=0x7f05000c;
@@ -103,8 +100,8 @@ public final class R {
         public static final int title_activity_claim_status=0x7f050007;
         public static final int title_activity_claims=0x7f050005;
         public static final int title_activity_destination=0x7f050003;
-        public static final int title_activity_edit_destination=0x7f050016;
-        public static final int title_activity_edit_expense=0x7f05001b;
+        public static final int title_activity_edit_destination=0x7f050015;
+        public static final int title_activity_edit_expense=0x7f05001a;
         public static final int title_activity_expense=0x7f050004;
         public static final int title_activity_new_expense=0x7f050006;
     }

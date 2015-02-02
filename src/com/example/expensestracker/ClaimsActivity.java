@@ -75,28 +75,39 @@ public class ClaimsActivity extends Activity {
 	
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+		String status = claims.get(info.position).getStatus();
 		if(item.getTitle() == "Expenses") {
+			Toast.makeText(this, "Your expenses", Toast.LENGTH_SHORT);
 			Intent intent = new Intent(ClaimsActivity.this, ExpenseActivity.class);
 			intent.putExtra("claimPosition", info.position);
+			intent.putExtra("status", status);
 			startActivity(intent);
 			
-		//Use of bundle borrowed and modified from http://stackoverflow.com/questions/14333449/passing-data-through-intent-using-serializable
-		//Last accessed Jan 31, 2015 at 2:33 PM
-		} else if(item.getTitle() == "Edit") {
-			Intent intent = new Intent(ClaimsActivity.this, EditDestinationActivity.class);
-			intent.putExtra("position", info.position);
-			startActivity(intent);
+		} 
+		
+		if(!(status.equals("Pending Review") || status.equals("Accepted"))) {
+			if(item.getTitle() == "Edit") {
+				Toast.makeText(this, "Edit claim", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(ClaimsActivity.this, EditDestinationActivity.class);
+				intent.putExtra("position", info.position);
+				startActivity(intent);
 			
-		} else if(item.getTitle() == "Delete") {
-			adapter.remove(claims.get(info.position));
+			} else if(item.getTitle() == "Delete") {
+				Toast.makeText(this, "Deleted claim", Toast.LENGTH_SHORT).show();
+				adapter.remove(claims.get(info.position));
 			
-		} else if(item.getTitle() == "Submit") {
-			Claims claim = adapter.getItem(info.position);
+			} else if(item.getTitle() == "Submit") {
+				Toast.makeText(this, "Submit claim", Toast.LENGTH_SHORT).show();
+				Claims claim = adapter.getItem(info.position);
+				adapter.Submit(info.position, claim);
+				
+			} else {
+				return false;
 			
-			adapter.Submit(info.position, claim);
-		} else {
-			return false;
-			
+			}
+			//Do not want to show this message if Expenses is selected
+		} else if(!(item.getTitle() == "Expenses")){
+			Toast.makeText(this, "Cannot edit, delete or submit claims at this moment", Toast.LENGTH_SHORT).show();
 		}
 		
 		saveInFile(claims);

@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener{
 	
@@ -19,10 +20,6 @@ public class MainActivity extends Activity implements OnClickListener{
 		if(Claims!= null) {
 			Claims.setOnClickListener(this);
 		}
-		TextView ClaimStatus = (TextView)findViewById(R.id.ClaimsStatus);
-		if(ClaimStatus!= null) {
-			ClaimStatus.setOnClickListener(this);
-		}
 	}
 	
 	
@@ -30,10 +27,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	public void onClick(View selectedView) {
 		if(selectedView.getId() == R.id.ClaimsExpenses) {
 			Intent intent = new Intent(MainActivity.this, ClaimsActivity.class);
-			startActivity(intent);
-		}
-		if(selectedView.getId() == R.id.ClaimsStatus) {
-			Intent intent = new Intent(MainActivity.this, ClaimStatusActivity.class);
+			Toast.makeText(this, "Your claims", Toast.LENGTH_SHORT).show();
 			startActivity(intent);
 		}
 	}
