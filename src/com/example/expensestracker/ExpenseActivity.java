@@ -104,11 +104,8 @@ public class ExpenseActivity extends Activity {
 		//Use of bundle borrowed and modified from http://stackoverflow.com/questions/14333449/passing-data-through-intent-using-serializable
 		//Last accessed Jan 31, 2015 at 2:33 PM
 		} else if(item.getTitle() == "Delete") {
-			Intent intent = new Intent(ExpenseActivity.this, EditDestinationActivity.class);
-			
-			intent.putExtra("expenseposition", info.position);
-			
-			startActivity(intent);
+
+			adapter.remove(claims.get(claimPosition).getExpenses().get(info.position));
 			
 		} else {
 			return false;
