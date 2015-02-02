@@ -43,5 +43,6 @@
     <string name="Rejected">Rejected, Pending Review From User</string>
     <string name="Accepted">Accepted</string>
     <string name="title_activity_edit_expense">EditExpenseActivity</string>
+    <string name="title_activity_email">EmailActivity</string>
 
 </resources>

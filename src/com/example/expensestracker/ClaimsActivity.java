@@ -15,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -60,6 +61,7 @@ public class ClaimsActivity extends Activity {
 	//Borrowed and modified from http://www.mikeplate.com/2010/01/21/show-a-context-menu-for-long-clicks-in-an-android-listview/
 	//Last accessed Feb 1, 8:08 PM
 	//Menus 4 and 5 ONLY show when the claim has been submitted
+	//Able to email accepted claims ONLY. 
 	public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo menuInfo) {
 		
 		super.onCreateContextMenu(contextMenu, view, menuInfo);	
@@ -75,6 +77,9 @@ public class ClaimsActivity extends Activity {
 		if((status.equals("Pending Review"))) {
 			contextMenu.add(0, view.getId(), 4, "Set claim as rejected");
 			contextMenu.add(0, view.getId(), 5, "Set claim as accepted");
+		}
+		if(status.equals("Accepted")) {
+			contextMenu.add(0, view.getId(), 4, "Email accepted claim");
 		}
 		
 	}
@@ -100,6 +105,35 @@ public class ClaimsActivity extends Activity {
 			}
 		}
 		
+		
+		if(status == "Email accepted claim") {
+			Toast.makeText(this, "emailing!", Toast.LENGTH_SHORT);
+			ArrayList<Expense> emailClaim = claims.get(info.position).getExpenses();
+			
+			String contents = "Your claims for " + claims.get(info.position).getYourDestination() + " are: \n";
+			int lineNumber = 1;
+			Expense expense;
+			for(int index = 0; index < emailClaim.size(); index ++) {
+				expense = emailClaim.get(index);
+				contents+= contents + lineNumber + ". " + expense.getDescription() + "\n";
+				contents+= contents + expense.getCost().toString() + " " + expense.getCurrency() +"\n";
+				contents+= contents + "Date: " + DateFormat.format("yyyy-MM-DD", expense.getDate()) + "\n";
+				lineNumber++;
+			}
+			
+			Intent emailIntent = new Intent(Intent.ACTION_SEND);
+			emailIntent.setType("message/rfc822");
+			emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your claims: ");
+			emailIntent.putExtra(Intent.EXTRA_TEXT, contents);
+			try {
+				startActivity(Intent.createChooser(emailIntent, "Preparing to send your email"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		
 		if(!(status.equals("Pending Review") || status.equals("Accepted"))) {
 			if(item.getTitle() == "Edit") {
 				Toast.makeText(this, "Edit claim", Toast.LENGTH_SHORT).show();
@@ -121,7 +155,7 @@ public class ClaimsActivity extends Activity {
 			
 			}
 			//Do not want to show this message if Expenses is selected
-		} else if(!(item.getTitle() == "Expenses" || item.getTitle() == "Set claim as rejected" || item.getTitle() == "Set claim as accepted")){
+		} else if(!(item.getTitle() == "Expenses" || item.getTitle() == "Set claim as rejected" || item.getTitle() == "Set claim as accepted" || item.getTitle() == "Email accepted claim")){
 			Toast.makeText(this, "Cannot edit, delete or submit claims at this moment", Toast.LENGTH_SHORT).show();
 		}
 		
